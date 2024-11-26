@@ -1,0 +1,133 @@
+{
+  "rules": [
+    "Your task is to find a certain location on the map.",
+    "When you press -Start- you will get a first hint out of five to find the place, but don't worry if it is not helping, first hints are hard. However, the first hint can be sufficient to find the place we are looking for.",
+    "For each hint you'll have 60 seconds to set your guess.",
+    "Once you set your guess the current round is over. Unless you haven't found the place, you will get your next hint.",
+    "Don't feel lost if the hints are not helping you. You also get the distance of your previous guesses to the target location. You might consider getting a little strategic with placing the guesses...",
+    "Oh, and finding means to get the location in a radius of about 50kms. So no need to be too pedantic.",
+    "Tip: Some hints might be riddles. Have fun!"
+  ],
+  "items": [
+    {
+      "target": { "lat": 34.052222, "lng": -118.243611 },
+      "hints": [
+        "The place we are looking for was founded by someone called Felipe. It was the same year planet Uranus was discovered.",
+        "A famous music group, which could be confused with vegetables, was founded there. ",
+        "Some people call it 'The Big Orange'.",
+        "The Olympic Summer Games of 2028 take place there.",
+        "The city is famous for its thriving film industry."
+      ]
+    },
+    {
+      "target": { "lat": -8.65, "lng": 120.45 },
+      "hints": [
+        "We are looking for a mountain called 'Poco Mandasawu'.",
+        "The mountain is located on an island that is known for the fact that scientist found the remains of the smallest human species that ever lived on earth.",
+        "We are on the territory of Indonesia.",
+        "The island has the shape of a whale.",
+        "It forms the side of a triangle of islands."
+      ]
+    },
+    {
+      "target": { "lat": 51.507222, "lng": -0.1275 },
+      "hints": [
+        "This place was once known as Londinium by the Romans.",
+        "A major river flowing through it shares its name with a famous English dictionary.",
+        "It is home to the oldest underground railway system in the world.",
+        "A famous clock tower, often mistakenly referred to as 'Big Ben', can be found here.",
+        "This city is the capital of England and the United Kingdom."
+      ]
+    },
+    {
+      "target": { "lat": 48.856613, "lng": 2.352222 },
+      "hints": [
+        "This place was originally a Celtic settlement called Lutetia.",
+        "A famous art museum here contains the Mona Lisa.",
+        "A tower built by Gustave Eiffel for a world fair dominates its skyline.",
+        "The city's nickname is 'The City of Light'.",
+        "This is the capital city of France."
+      ]
+    },
+    {
+      "target": { "lat": 40.712776, "lng": -74.005974 },
+      "hints": [
+        "Originally called New Amsterdam, it was renamed in honor of the Duke of York.",
+        "This city is known for a large statue that was a gift from France.",
+        "Times Square is a famous attraction here, especially during New Year's Eve.",
+        "Its nickname is 'The Big Apple'.",
+        "This city is the most populous in the United States and located in New York State."
+      ]
+    },
+    {
+      "target": { "lat": 35.689487, "lng": 139.691711 },
+      "hints": [
+        "The original name of this place was Edo.",
+        "This city is famous for its cherry blossoms and Mount Fuji is visible on clear days.",
+        "Its subway system is one of the busiest and most efficient in the world.",
+        "Shibuya Crossing is a famous landmark here.",
+        "This is the capital city of Japan."
+      ]
+    },
+    {
+      "target": { "lat": -33.868820, "lng": 151.209290 },
+      "hints": [
+        "This place was founded as a penal colony in 1788.",
+        "A famous white sail-like opera house can be found here.",
+        "Bondi Beach is a popular destination within this city.",
+        "The Sydney Harbour Bridge is a key landmark here.",
+        "This city is the most populous in Australia and is located in New South Wales."
+      ]
+    },
+    {
+      "target": { "lat": 55.755825, "lng": 37.617298 },
+      "hints": [
+        "The city's name may be derived from an old Slavic word meaning 'wet' or 'swampy ground'.",
+        "It became the capital after a city on a river with a similar name lost its status.",
+        "A famous fortress in this city has towers named after saints and royalty.",
+        "It was the host of the 1980 Summer Olympics.",
+        "This is the capital city of Russia, famous for the Red Square."
+      ]
+    },
+    {
+      "target": { "lat": -22.906847, "lng": -43.172896 },
+      "hints": [
+        "This city was once the capital of its country until it was replaced in the 1960s.",
+        "A large mountain called 'Sugarloaf' is a recognizable natural landmark here.",
+        "The annual carnival celebration here attracts millions of visitors.",
+        "A giant statue of Christ overlooks the city from a mountain.",
+        "This city is located in Brazil, near famous beaches like Copacabana."
+      ]
+    },
+    {
+      "target": { "lat": 37.774929, "lng": -122.419416 },
+      "hints": [
+        "This place was part of a massive gold rush in the mid-19th century.",
+        "It has a famous neighborhood named after Italian immigrants and 'Little'.",
+        "The 1906 earthquake nearly destroyed the city.",
+        "A well-known bridge painted in 'international orange' connects it to Marin County.",
+        "This city is in California, known for the Golden Gate Bridge."
+      ]
+    },
+    {
+      "target": { "lat": 30.044420, "lng": 31.235712 },
+      "hints": [
+        "Its original name means 'The Victorious' in Arabic.",
+        "The city is close to the ancient capital of a kingdom that ruled from Giza.",
+        "The River Nile flows through this place.",
+        "It is home to one of the oldest universities in the world, Al-Azhar.",
+        "This city is the capital of Egypt."
+      ]
+    },
+    {
+      "target": { "lat": 41.902782, "lng": 12.496366 },
+      "hints": [
+        "Legend has it that two brothers founded this city, but one killed the other.",
+        "Its history includes seven hills and an empire that spanned continents.",
+        "A tiny independent city-state is located entirely within this city.",
+        "It is famous for landmarks like the Colosseum and the Pantheon.",
+        "This city is the capital of Italy."
+      ]
+    }
+  ]
+}
