@@ -48,7 +48,7 @@ export default function App() {
       resetCountDown();
       setPreviousMarker(null);
     } else if (gameState == 4) {
-      // Handling game state 4 == after all rounds or win
+      // Handling game state 4 == after all rounds or win; This is where the right answer is revealed.
       setShowTargetMarker(true);
       setPreviousMarker(latestGuess)
       setGlobalPoints(globalPoints + (50 - (round) * 10));
@@ -123,7 +123,6 @@ export default function App() {
           latestGuess,
           coords,
           win,
-          roundPoints,
           globalPoints,
           setPreviousMarker,
         }}

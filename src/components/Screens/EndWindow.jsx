@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { gameContext } from "../../App";
 
 export default function EndWindow() {
-  const { nextGameState, win, roundPoints, latestGuess, globalPoints } =
+  const { nextGameState, win, guesses, latestGuess, globalPoints } =
     useContext(gameContext);
   return (
     <>
@@ -11,9 +11,9 @@ export default function EndWindow() {
         <div>
           <p>
             {"You needed " +
-              (6 - roundPoints / 10) +
+              (guesses.length) +
               " guess(es) to get there. That means " +
-              roundPoints +
+              guesses.length*10 +
               " points for you."}
           </p>
           <p>{"You have now " + globalPoints + " points."}</p>
