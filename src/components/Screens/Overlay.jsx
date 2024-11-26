@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./screens.css";
+import "./Screens.css";
 import { gameContext } from "../../App";
 import StartScreen from "./StartScreen";
 import HintScreen from "./HintScreen";
