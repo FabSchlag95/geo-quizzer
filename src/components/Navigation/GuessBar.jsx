@@ -21,7 +21,7 @@ const Guess = ({ guess, i, setPreviousMarker }) => {
   return (
     <div
       onClick={() => {
-        if (guess) {
+        if (guess?.coords) {
           setPreviousMarker(guess);
         }
       }}
@@ -30,13 +30,12 @@ const Guess = ({ guess, i, setPreviousMarker }) => {
     >
       <div>
         <a>{i + 1}. Guess:</a> <a>{guess?.distance || "--"} km </a>
-        <i
+        {guess?.angleToTarget&&<i
           style={{
-            rotate: `${guess?.angleToTarget}deg`,
-            visibility: guess?.distance ? "100%" : "0%",
+            rotate: `${guess?.angleToTarget}deg`
           }}
           className={"fa-regular fa-circle-up"}
-        ></i>
+        ></i>}
       </div>
     </div>
   );
