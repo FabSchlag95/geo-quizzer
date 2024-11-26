@@ -13,7 +13,7 @@ export default function EndWindow() {
             {"You needed " +
               (guesses.length) +
               " guess(es) to get there. That means " +
-              guesses.length*10 +
+              (60-guesses.length*10) +
               " points for you."}
           </p>
           <p>{"You have now " + globalPoints + " points."}</p>

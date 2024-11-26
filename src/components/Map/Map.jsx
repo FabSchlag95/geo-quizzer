@@ -11,7 +11,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 import borderData from "../../assets/borders.json";
-import { quizzerIcon, previousMarkerIcon } from "./quizzerIcon";
+import { quizzerIcon,targetIcon, previousMarkerIcon } from "./quizzerIcon";
 
 export default function Map({
   coords,
@@ -45,7 +45,7 @@ export default function Map({
         )}
         {targetMarker && (
           <>
-            <Marker position={targetMarker} />
+            <Marker position={targetMarker} icon={targetIcon}/>
             <Polyline
               key={"targetline"}
               positions={[previousMarker.coords, targetMarker]}

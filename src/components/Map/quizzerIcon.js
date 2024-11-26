@@ -1,13 +1,22 @@
 import L from "leaflet";
 import regular from "../../assets/quizzer-icon.svg";
+import target from "../../assets/target-marker.svg"
 import previous from "../../assets/quizzer-icon-previous.svg";
 
 export const quizzerIcon = new L.Icon({
   iconUrl: regular,
-  iconAnchor: [55, 90],
+  iconAnchor: [40, 70],
   popupAnchor: null,
   className: "marker",
-  iconSize: new L.Point(110, 100),
+  iconSize: new L.Point(80, 70),
+});
+
+export const targetIcon = new L.Icon({
+  iconUrl: target,
+  iconAnchor: [40, 70],
+  popupAnchor: null,
+  className: "marker",
+  iconSize: new L.Point(80, 70),
 });
 
 export const previousMarkerIcon = (color) => {

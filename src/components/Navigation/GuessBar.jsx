@@ -29,7 +29,7 @@ const Guess = ({ guess, i, setPreviousMarker }) => {
       style={{ backgroundColor: guess.color }}
     >
       <div>
-        <a>{i + 1}. Guess:</a> <a>{guess?.distance || "--"} km</a>
+        <a>{i + 1}. Guess:</a> <a>{guess?.distance || "--"} km </a>
         <i
           style={{
             rotate: `${guess?.angleToTarget}deg`,

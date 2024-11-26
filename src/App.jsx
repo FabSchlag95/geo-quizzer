@@ -51,7 +51,7 @@ export default function App() {
       // Handling game state 4 == after all rounds or win; This is where the right answer is revealed.
       setShowTargetMarker(true);
       setPreviousMarker(latestGuess)
-      setGlobalPoints(globalPoints + (50 - (round) * 10));
+      setGlobalPoints(globalPoints + (60 - (guesses.length) * 10));
     } else if (gameState == 5) {
       // this is the reset state
       resetGuesses();
