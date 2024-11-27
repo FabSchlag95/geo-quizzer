@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import haversine from "haversine-distance";
 import { point, bearing } from '@turf/turf';
 
@@ -6,7 +6,7 @@ export default function useGuesses() {
   const [guesses, setGuesses] = useState([])
   const [latestGuess, setLatestGuess] = useState(null)
   
-  function addGuess(guessCoords, targetCoords) {
+  const addGuess = useCallback((guessCoords, targetCoords) => {
     let guess = {"color":"lightgrey"}
     if(guessCoords){
         let distance = getGuessToTargetDistance(guessCoords, targetCoords)
@@ -14,14 +14,15 @@ export default function useGuesses() {
         let bg = getBackgroundColor(distance)
         guess = {distance,"coords":guessCoords,"color":bg,"angleToTarget":angle}
     }
+
     const guessesTemp = [...guesses]
     guessesTemp.push(guess)
     setGuesses(guessesTemp)
     setLatestGuess(guess)
-  }
-  function resetGuesses() {
+  })
+  const resetGuesses = useCallback(() => {
     setGuesses([])
-  }
+  })
   return [latestGuess, guesses, addGuess, resetGuesses]
 }
 

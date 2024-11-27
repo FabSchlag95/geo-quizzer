@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import {
   MapContainer,
   Marker,
@@ -13,13 +13,13 @@ import "./Map.css";
 import borderData from "../../assets/borders.json";
 import { quizzerIcon,targetIcon, previousMarkerIcon } from "./quizzerIcon";
 
-export default function Map({
+const Map = memo(({
   coords,
   setCoords,
   showBorders,
   previousMarker,
   targetMarker,
-}) {
+})=>{
   return (
     <>
       <MapContainer
@@ -68,7 +68,9 @@ export default function Map({
       </MapContainer>
     </>
   );
-}
+})
+
+export default Map;
 
 function MapEventComponent({ setCoords }) {
   useMapEvents({

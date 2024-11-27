@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { gameContext } from "../../App";
+import React, { memo } from "react";
 
-export default function GlobalPoints() {
-  const { globalPoints } = useContext(gameContext);
+const GlobalPoints = memo(({ globalPoints })=>{
   return (
     <div className="global-points">
       <p>Score {globalPoints||0} p.</p>
     </div>
   );
-}
+})
+
+export default GlobalPoints

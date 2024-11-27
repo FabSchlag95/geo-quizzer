@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import { gameContext } from "../../App";
+import React from "react";
 
-export default function ConfirmGuessBtn() {
-  const { coords,nextGameState } = useContext(gameContext)
+export default function ConfirmGuessBtn({ coords,nextGameState }) {
   return (
     <button onClick={nextGameState}>
       <i

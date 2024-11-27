@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { gameContext } from "../../App";
 
-export default function HintScreen() {
-  const { nextGameState, activeHints } = useContext(gameContext);
+export default function HintScreen({ nextGameState, activeHints }) {
   const [counter, setCounter] = useState(10);
 
   let timer = null;

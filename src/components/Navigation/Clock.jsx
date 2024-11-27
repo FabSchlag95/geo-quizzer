@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { gameContext } from "../../App";
+import { useEffect, useState } from "react";
 import "./Navigation.css"
 
-export default function Clock() {
-  const { counter } = useContext(gameContext);
+export default function Clock({ counter }) {
   const [alarm, setAlarm] = useState(false);
 
   useEffect(()=>{

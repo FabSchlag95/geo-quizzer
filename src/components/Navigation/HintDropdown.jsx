@@ -1,10 +1,7 @@
-import { useEffect, useRef, useState, useContext } from "react";
-import { gameContext } from "../../App";
+import React, { memo } from "react";
 import "./Navigation.css";
 
-export default function HintDropdown() {
-  const { activeHints } = useContext(gameContext);
-
+const HintDropdown = memo(({ activeHints })=>{
   return (
     <div className="hint-dropdown">
       {activeHints.map((hint, i) => (
@@ -17,7 +14,7 @@ export default function HintDropdown() {
       ))}
     </div>
   );
-}
+})
 
 function Hint(props) {
   const { hintText, i, isLast } = props;
@@ -37,3 +34,5 @@ function Hint(props) {
     </>
   );
 }
+
+export default HintDropdown

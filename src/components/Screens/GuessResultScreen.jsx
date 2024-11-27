@@ -1,8 +1,6 @@
-import { useContext, useState } from "react";
-import { gameContext } from "../../App";
+import React from "react";
 
-export default function GuessResultScreen() {
-  const { latestGuess, nextGameState } = useContext(gameContext);
+export default function GuessResultScreen({ latestGuess, nextGameState }) {
   return (
       <>
         <h3>{setHeadline(latestGuess?.distance)}</h3>

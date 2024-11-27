@@ -1,8 +1,6 @@
-import { useContext, useState } from "react";
-import { gameContext } from "../../App";
+import React, { memo } from "react";
 
-export default function GuessBar() {
-  const { guesses, setPreviousMarker } = useContext(gameContext);
+const GuessBar = memo(({ guesses, handlePreviousMarker })=>{
   return (
     <div className="guess-bar">
       {guesses.map((guess, i) => (
@@ -10,19 +8,19 @@ export default function GuessBar() {
           key={guess?.distance || "null" + i}
           guess={guess}
           i={i}
-          setPreviousMarker={setPreviousMarker}
+          handlePreviousMarker={handlePreviousMarker}
         />
       ))}
     </div>
   );
-}
+})
 
-const Guess = ({ guess, i, setPreviousMarker }) => {
+const Guess = ({ guess, i, handlePreviousMarker }) => {
   return (
     <div
       onClick={() => {
         if (guess?.coords) {
-          setPreviousMarker(guess);
+          handlePreviousMarker(guess);
         }
       }}
       className="guess"
@@ -40,3 +38,5 @@ const Guess = ({ guess, i, setPreviousMarker }) => {
     </div>
   );
 };
+
+export default GuessBar

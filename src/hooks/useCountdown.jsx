@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 
 export default function useCountdown(limit) {
@@ -16,14 +16,14 @@ export default function useCountdown(limit) {
         return () => clearTimeout(timer); // return function to clear Time out to avoid side effects
       }, [counter,isRunning]);
     
-    function startCountdown() {
+    const startCountdown = useCallback(() => {
         setIsRunning(true)
-    }
+    },[isRunning])
 
-    function resetCountDown() {
+    const resetCountDown = useCallback(() => {
         setIsRunning(false)
         setCounter(limit)
-    }
+    },[setCounter,isRunning])
     
     return [counter,startCountdown,resetCountDown]
 }

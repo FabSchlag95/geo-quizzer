@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
-export default function useRounds(maxRound) {
+export default function useRounds() {
   const [round, setRound] = useState(0);
 
-  function nextRound() {
+  const nextRound = useCallback(()=>{
     setRound(round+1)
-  }
-  function resetRound() {
+  })
+  const resetRound = useCallback(()=>{
     setRound(0)
-  }
+  })
   return [round, nextRound, resetRound]
 }

@@ -1,17 +1,15 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect, useCallback } from "react";
 import "./App.css";
-import Layout from "./components/Navigation/Layout";
+import Navigation from "./components/Navigation/Navigation";
 import useCountdown from "./hooks/useCountdown";
 import useGameState from "./hooks/useGameState";
 import * as gameData from "./assets/gameData.json";
 import useItems from "./hooks/useItems";
 import useGuesses from "./hooks/useGuesses";
 import Map from "./components/Map/Map";
-import Overlay from "./components/Screens/Overlay";
+import Screens from "./components/Screens/Screens";
 import useRounds from "./hooks/useRounds";
 import useHints from "./hooks/useHints";
-
-export const gameContext = createContext();
 
 export default function App() {
   // meta options
@@ -20,7 +18,7 @@ export default function App() {
 
   // game engine
   const [counter, startCountdown, resetCountDown] = useCountdown(60);
-  const [round, nextRound, resetRound] = useRounds(5);
+  const [round, nextRound, resetRound] = useRounds();
   const [gameState, setGameState, nextGameState] = useGameState(0, round);
   const [currentItem, nextRandomItem] = useItems(gameData.items);
   const [activeHints, initializeHints, activateNextHint] = useHints();
@@ -32,6 +30,10 @@ export default function App() {
   const [previousMarker, setPreviousMarker] = useState(null);
   const [latestGuess, guesses, addGuess, resetGuesses] = useGuesses();
   const [showTargetMarker, setShowTargetMarker] = useState(null);
+
+  const handlePreviousMarker = useCallback((selectedGuess) => {
+    setPreviousMarker(selectedGuess);
+  }, [setPreviousMarker]);
 
   // useEffects to handle states and set/reset variables
   // ---- handle game states
@@ -46,28 +48,28 @@ export default function App() {
       setCoords(null);
       nextRound();
       resetCountDown();
-      setPreviousMarker(null);
+      handlePreviousMarker(null);
     } else if (gameState == 4) {
       // Handling game state 4 == after all rounds or win; This is where the right answer is revealed.
       setShowTargetMarker(true);
-      setPreviousMarker(latestGuess)
-      setGlobalPoints(globalPoints + (60 - (guesses.length) * 10));
+      handlePreviousMarker(latestGuess);
+      setGlobalPoints(globalPoints + (60 - guesses.length * 10));
     } else if (gameState == 5) {
       // this is the reset state
       resetGuesses();
       resetRound();
       setShowTargetMarker(false);
-      setPreviousMarker(null)
+      handlePreviousMarker(null);
     }
   }, [gameState]);
 
   // await changes before switching to next game state.
-  useEffect(()=>{
-    if(gameState==5 && !showTargetMarker && !previousMarker && round==0){
+  useEffect(() => {
+    if (gameState == 5 && !showTargetMarker && !previousMarker && round == 0) {
       nextRandomItem();
       nextGameState();
     }
-  },[gameState,showTargetMarker,previousMarker,round])
+  }, [gameState, showTargetMarker, previousMarker, round]);
 
   // ---  when a (new) currentItem, that is an item with hints and target, hints will be set
   useEffect(() => {
@@ -77,7 +79,7 @@ export default function App() {
   }, [currentItem]);
 
   useEffect(() => {
-    if(gameState===5)return
+    if (gameState === 5) return;
     // win or loose condition: when a 5. round is reached (no more hints) the game is lost, otherwise must be a win
     if (latestGuess && latestGuess.distance < 50) {
       setWin(true);
@@ -111,24 +113,35 @@ export default function App() {
         setCoords={setCoords}
         showBorders={showBorders}
         previousMarker={previousMarker}
-        targetMarker={showTargetMarker&&currentItem.target}
+        targetMarker={showTargetMarker && currentItem.target}
       />
-      <gameContext.Provider
-        value={{
-          gameState,
-          nextGameState,
-          counter,
-          activeHints,
-          guesses,
-          latestGuess,
-          coords,
-          win,
-          globalPoints,
-          setPreviousMarker,
-        }}
-      >
-        {gameState === 2 ? <Layout /> : <Overlay />}
-      </gameContext.Provider>
+      {gameState === 2 ? (
+        <Navigation
+          context={{
+            counter,
+            nextGameState,
+            activeHints,
+            guesses,
+            coords,
+            globalPoints,
+            handlePreviousMarker
+          }}
+        />
+      ) : (
+        <Screens
+          context={{
+            gameState,
+            nextGameState,
+            activeHints,
+            guesses,
+            latestGuess,
+            coords,
+            win,
+            globalPoints,
+            handlePreviousMarker,
+          }}
+        />
+      )}
       <Footer />
     </>
   );

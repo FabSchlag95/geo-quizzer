@@ -1,11 +1,8 @@
 import React from "react";
 import * as gameData from "../../assets/gameData.json";
-import { useContext } from "react";
-import { gameContext } from "../../App";
 
 
-export default function StartScreen() {
-  const { nextGameState } = useContext(gameContext);
+export default function StartScreen({ nextGameState }) {
   return (
     <>
       <h3>Rules:</h3>

@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
-import { gameContext } from "../../App";
+import React from "react";
 
-export default function EndWindow() {
-  const { nextGameState, win, guesses, latestGuess, globalPoints } =
-    useContext(gameContext);
+export default function EndWindow({ nextGameState, win, guesses, latestGuess, globalPoints }) {
   return (
     <>
       <h3>{win ? "You got it!" : "Close but not close enough..."}</h3>
