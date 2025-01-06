@@ -6,8 +6,9 @@ GeoQuizzer is a quiz game that combines location guessing and quiz game play. So
 - This is still work in progress.
 
 ## Troubleshoot:
-- so far runs on chrome and edge
+- so far only runs on chrome and edge
 
 ## TODOs:
-- implement memoization 
-- develop mobile version 
+- fix mobile version
+- include name guessing
+- reinclude final distance showing on map
