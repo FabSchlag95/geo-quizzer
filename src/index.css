@@ -11,9 +11,10 @@
 
   /* global variables used for design */
 
-  --background-color: lightgrey;
-  --primary-color: rgb(199, 113, 113);
-  --accent-color: Black;
+  --background-color: #999EFF;
+  --primary-color: #747BFF;
+  --accent-color:#151515;
+  --secondary-color: #9EE493;
   --font-color: Black;
 
   --shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
@@ -27,6 +28,7 @@
 
 button {
   font-family: Poppins, Helvetica, Arial, sans-serif;
+  font-size: var(--base-sizing);
   background-color: var(--primary-color);
   color: var(--font-color);
   border: 2px solid transparent;
@@ -35,9 +37,13 @@ button {
   padding: 10px;
   font-weight: bolder;
   cursor: pointer;
+  transition: all 0.5s;
 }
 button:hover{
   border: 2px solid var(--accent-color);
+  text-decoration: underline;
+  text-decoration-color: var(--font-color);
+  text-decoration-thickness: 3px;
 }
 
 div {

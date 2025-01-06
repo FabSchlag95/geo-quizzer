@@ -1,3 +1,8 @@
+.ui-container {
+    z-index: 10;
+    pointer-events: none;
+}
+
 .nav-header {
     position: relative;
     top: 0;
@@ -7,7 +12,6 @@
     width: 100%;
     padding: 1rem;
     height: fit-content;
-    pointer-events: none;
 }
 
 .nav-header * {
@@ -37,9 +41,10 @@
     aspect-ratio: 1;
     font-weight: 300;
     font-size: var(--h2-font-size);
+    font-weight: 400;
 }
 
-.alarm {
+#alarm {
     background-color: red;
     -webkit-animation: blink 1s steps(5, start) infinite;
     animation: blink 1s steps(5, start) infinite;
@@ -100,19 +105,22 @@
     box-shadow: var(--shadow);
     cursor: pointer;
     overflow-x: hidden;
+    pointer-events: all;
 }
 
 .confirm-guess {
     position: absolute;
     border-radius: 5vh;
     z-index: 2;
-    bottom: 10vh;
+    bottom: 5vh;
     right: 10vh;
-    transform: translateX(5vh);
+    transform: translateY(-50%) translateX(50%);
     background-color: transparent;
     box-shadow: var(--shadow);
     transition: color 0.5s;
     transition: all 0.5s;
+    pointer-events: all;
+    cursor: pointer;
 }
 
 

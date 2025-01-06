@@ -1,32 +1,33 @@
-import React, { useCallback, useState } from 'react'
 import haversine from "haversine-distance";
-import { point, bearing } from '@turf/turf';
+import { point, bearing } from "@turf/turf";
 
-export default function useGuesses() {
-  const [guesses, setGuesses] = useState([])
-  const [latestGuess, setLatestGuess] = useState(null)
-  
-  const addGuess = useCallback((guessCoords, targetCoords) => {
-    let guess = {"color":"lightgrey"}
-    if(guessCoords){
-        let distance = getGuessToTargetDistance(guessCoords, targetCoords)
-        let angle = getAngleToTarget(guessCoords, targetCoords)
-        let bg = getBackgroundColor(distance)
-        guess = {distance,"coords":guessCoords,"color":bg,"angleToTarget":angle}
+export const createGuessObject = (guessCoords, targetCoords, maxWinDistance, maxCompassDistance) => {
+  let guess = {  };
+  if (!guessCoords){
+    guess = {
+      distance: undefined,
+      color: "darkgrey",
+      coords: null,
+      angleToTarget: null,
+      win: false,
     }
+  }else {
+    let distance = getGuessToTargetDistance(guessCoords, targetCoords);
+    let angle = getAngleToTarget(guessCoords, targetCoords);
+    let bg = getBackgroundColor(distance);
+    guess = {
+      distance,
+      coords: guessCoords,
+      color: bg,
+      angleToTarget: angle,
+      win: distance <= maxWinDistance,
+      showCompass: distance <= maxCompassDistance,
+    };
+  }
+  return guess;
+};
 
-    const guessesTemp = [...guesses]
-    guessesTemp.push(guess)
-    setGuesses(guessesTemp)
-    setLatestGuess(guess)
-  })
-  const resetGuesses = useCallback(() => {
-    setGuesses([])
-  })
-  return [latestGuess, guesses, addGuess, resetGuesses]
-}
-
-// Helper function to get the distance 
+// Helper function to get the distance
 function getGuessToTargetDistance(guessCoords, targetCoords) {
   const distM = haversine(guessCoords, targetCoords); // gets the distance between two coordinates
   const distKm = Math.round(distM / 1000); //dist in kms
@@ -44,7 +45,7 @@ const getBackgroundColor = (distance) => {
 
 // helper function to get the angle to the target location
 const getAngleToTarget = (guessCoords, targetCoords) => {
-  let coords1 = point([guessCoords.lng,guessCoords.lat])
-  let coords2 = point([targetCoords.lng,targetCoords.lat])
-  return bearing(coords1,coords2)
-}
+  let coords1 = point([guessCoords.lng, guessCoords.lat]);
+  let coords2 = point([targetCoords.lng, targetCoords.lat]);
+  return bearing(coords1, coords2);
+};

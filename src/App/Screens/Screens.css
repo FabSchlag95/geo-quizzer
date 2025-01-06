@@ -13,14 +13,15 @@
     overflow: hidden;
 }
 
-.intermediate-screen {
+.container-screen {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:space-between;
     width: clamp(300px, 40vw, 50vw);
-    height: clamp(400px, fit-content, 800px);
+    height: fit-content;
+    max-height: 80vh;
     background-color: var(--background-color);
     overflow: hidden;
     padding: 2rem;
@@ -29,13 +30,13 @@
     border-radius: 1rem;
 }
 
-.intermediate-screen ul{
+.container-screen ul{
     max-height: 70%;
     flex:1;
     overflow-y: auto;
 }
 
-.intermediate-screen p {
+.container-screen p {
     padding-inline: 5vw;
     text-align: center;
 }

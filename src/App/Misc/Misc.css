@@ -1,0 +1,98 @@
+.scene {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #000814, #001d3d);
+    overflow: hidden;
+    animation: fade-away 1s ease-out;
+    animation-delay: 6s;
+}
+
+.scene .text {
+    color: var(--background-color);
+    font-weight: bolder;
+    font-size: 700%;
+    animation: fade-in 2s ease-out;
+    opacity: 0%;
+}
+
+#text-1 {
+    animation-delay: 4s;
+}
+#text-2 {
+    animation-delay: 4.5s;
+}
+
+/* Planet styling */
+.circle {
+    width: 25%;
+    aspect-ratio: 1;
+    background: transparent;
+    border: 5vw solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    animation: spin 4s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Landmarks */
+.mark {
+    position: absolute;
+    width: 75%;
+    animation: approach 3s ease-in-out forwards;
+    transform: translateY(-300px);
+    /* Start far from the planet */
+    animation-delay: 0s;
+}
+
+/* Keyframes for spinning planet */
+@keyframes spin {
+    0% {
+        transform: rotate(-360deg);
+    }
+
+    100% {
+        transform: rotate(135deg);
+    }
+}
+
+/* Keyframes for landmark approach */
+@keyframes approach {
+    0% {
+        transform: translateY(-50vw);
+    }
+
+    100% {
+        transform: translateY(-60%);
+    }
+}
+
+
+@keyframes fade-away {
+    0% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}

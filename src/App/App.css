@@ -17,21 +17,6 @@
   min-height: 100vh;
 }
 
-footer {
-  z-index: 10;
-  background-color: var(--primary-color);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-footer div {
-  font-size: clamp(0.5rem, 0.77vw, 1rem);
-}
 
 header {
   position: relative;
@@ -84,4 +69,17 @@ header:hover * {
   margin-top: 0;
   color: var(--font-color);
   transition: all 0.5s ease-in-out;
+}
+
+footer {
+  z-index: 10;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer div {
+  font-size: clamp(0.5rem, 0.77vw, 1rem);
 }

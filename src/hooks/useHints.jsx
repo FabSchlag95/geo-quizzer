@@ -1,19 +1,21 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-export default function useHints() {
+export default function useHints(currentItem) {
   const [hints, setHints] = useState([]);
   const [activeHints, setActiveHints] = useState([]);
-  
-  const initializeHints = useCallback((currentItem)=>{
-    setHints(currentItem.hints);
-    setActiveHints([currentItem.hints[0]]);
-  })
+ 
+  useEffect(()=>{
+    if(currentItem){
+      setHints(currentItem.hints);
+      setActiveHints([currentItem.hints[0]]);
+    }
+  },[currentItem])
   
   const activateNextHint = useCallback(()=>{
     let temp = [...activeHints]
     temp.push(hints[temp.length])
     setActiveHints(temp);
-  })
+  },[hints,activeHints])
 
-  return [activeHints,initializeHints, activateNextHint]
+  return [activeHints, activateNextHint]
 }

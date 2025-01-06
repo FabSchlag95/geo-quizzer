@@ -1,7 +1,6 @@
 import React, { memo } from "react";
-import "./Navigation.css";
 
-const HintDropdown = memo(({ activeHints })=>{
+const Hints = memo(({ activeHints })=>{
   return (
     <div className="hint-dropdown">
       {activeHints.map((hint, i) => (
@@ -35,4 +34,4 @@ function Hint(props) {
   );
 }
 
-export default HintDropdown
+export default Hints
