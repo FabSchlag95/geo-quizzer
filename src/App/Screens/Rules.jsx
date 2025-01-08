@@ -1,5 +1,5 @@
 
-export default function Rules({ rules, toggleRules, isStart }) {
+export default function Rules({ rules, onClick, isStart }) {
   return (
     <>
       <h3>Rules:</h3>
@@ -8,7 +8,7 @@ export default function Rules({ rules, toggleRules, isStart }) {
           <li key={rule+i}>{rule}</li>
         ))}
       </ul>
-      <button onClick={toggleRules}>{isStart?"Start First Round!":"Continue"}</button>
+      <button onClick={onClick}>{isStart?"Start First Round!":"Continue"}</button>
     </>
   );
 }

@@ -1,3 +1,4 @@
+/*  Animation */
 .scene {
     position: fixed;
     z-index: 20;
@@ -96,3 +97,84 @@
         opacity: 100%;
     }
 }
+
+
+/* Header & Footer */
+
+
+header {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-color);
+    z-index: 10;
+    height: fit-content;
+    transition: all 0.5s;
+    overflow: hidden;
+    cursor: default;
+  }
+  
+  header h2 {
+    color: transparent;
+    transition: all 0.5s ease-in;
+  }
+  
+  .header-options {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: left;
+    margin-top: 10vh;
+    margin-right: 2vw;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .header-shown * {
+    margin-top: 0;
+    color: var(--font-color);
+    transition: all 0.5s ease-in-out;
+  }
+
+  header .logo {
+    position: absolute;
+    left: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+    max-height: 80%;
+    aspect-ratio: 1;
+  }
+
+  @media (max-width: 1000px) {
+    header {
+        justify-content:flex-start;
+        padding-inline: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header h2 {
+        visibility: hidden;
+    }
+
+    header .logo {
+        visibility: visible;
+    }
+
+  }
+
+  footer {
+    z-index: 10;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  footer div {
+    font-size: clamp(0.5rem, 0.77vw, 1rem);
+  }

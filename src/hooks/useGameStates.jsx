@@ -13,8 +13,8 @@ export default function useGameStates(gameState) {
         return {
           ...state,
         };
-      } else if (action.type === "RULES") {
-        return { ...state, currentScreen: "RULES" };
+      } else if (action.type === "INFO") {
+        return { ...state, currentScreen: "INFO" };
       } else if (action.type === "START_ROUND") {
         const [currentItem, notPlayedItems] = nextRandomItem(
           gameState.notPlayedItems
@@ -65,7 +65,7 @@ export default function useGameStates(gameState) {
   const nextGameState = (payload = null) => {
     const states = [
       "INITIAL",
-      "RULES",
+      "INFO",
       "START_ROUND",
       "HINT",
       "GUESSING",
@@ -85,11 +85,7 @@ export default function useGameStates(gameState) {
 
   // toggle rules screen
   const toggleRules = () => {
-    if (state.stateName === "RULES") {
-      if (state.previousScreen && state.previousScreen != "RULES")
-        dispatch({ type: state.previousScreen });
-      else nextGameState();
-    } else dispatch({ type: "RULES", previousScreen: state.stateName });
+    changeSettings({showRules: !state.showRules})
   };
 
   // reset the game state to beginning state
@@ -105,7 +101,9 @@ export default function useGameStates(gameState) {
     // automatically go to the next state when being in start_round state
     if (state.stateName == "START_ROUND") dispatch({ type: "HINT" });
     // skip to the round result when round is over
-    if (state.stateName == "GUESS_RESULT" && (state.round>state.maxRounds||state.win)) dispatch({type:"ROUND_RESULT"})
+    if (state.stateName == "GUESS_RESULT" && (state.round>state.maxRounds||state.win)) dispatch({type:"ROUND_RESULT"});
+    // when there is an intermediate screen, disable rules
+    if (state.currentScreen) changeSettings({showRules:false});
   }, [state]);
 
   return [state, nextGameState, toggleRules, restartGame, changeSettings];

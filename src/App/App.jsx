@@ -8,42 +8,46 @@ import { gameContext } from "./contexts";
 import UI from "./UIElements/UI";
 import gameData from "../assets/gameData.json";
 import borders from "../assets/borders.json";
-import { useState } from "react";
 import InitialAnimation from "./Misc/InitialAnimation";
 
 export default function App() {
-  const [defaultGameState, setDefaultGameState] = useState({
+  const defaultGameState = {
     // pre game settings
     maxRounds: 5,
-    roundTime:60,
+    roundTime: 60,
     maxWinDistance: 50,
     maxCompassDistance: 2000,
-    // data
+    // constant data
     rules: gameData.rules,
     allItems: gameData.items,
     notPlayedItems: gameData.items,
-    // optionals
+    // variable data
     activeHints: [],
     guesses: [],
     currentItem: null,
+    previousMarker: null,
+    tempCoords: null,
+    // flags
     stateName: "INITIAL",
     showBorders: true,
     currentScreen: "",
-    previousMarker: null,
+    win: false,
+    showRules: false,
+    // variables
+    previousScreen: null,
     round: 0,
     globalPoints: 0,
     roundPoints: 0,
-    win: false,
-    previousScreen: null,
-    tempCoords: null,
-  });
+  };
 
   const [state, nextGameState, toggleRules, restartGame, changeSettings] =
     useGameStates(defaultGameState);
-  
+
   return (
     <>
-      {state.stateName === "INITIAL" && <InitialAnimation nextGameState={nextGameState}/>}
+      {state.stateName === "INITIAL" && (
+        <InitialAnimation nextGameState={nextGameState} />
+      )}
       <gameContext.Provider
         value={{
           ...state,
@@ -55,7 +59,7 @@ export default function App() {
         }}
       >
         <Header />
-        {state.currentScreen && <Overlay />}
+        <Overlay />
         {state.stateName === "GUESSING" && <UI />}
         <GameMap />
         <Footer />

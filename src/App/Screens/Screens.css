@@ -52,3 +52,9 @@
 .end-window * {
     margin-block: 1vh;
 }
+
+li {
+    padding-block: 1vh;
+    list-style-type: circle;
+    margin-inline: 10%;
+}
