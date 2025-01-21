@@ -13,7 +13,7 @@
     background: radial-gradient(circle, #000814, #001d3d);
     overflow: hidden;
     animation: fade-away 1s ease-out;
-    animation-delay: 6s;
+    animation-delay: 3s;
 }
 
 .scene .text {
@@ -25,10 +25,10 @@
 }
 
 #text-1 {
-    animation-delay: 4s;
+    animation-delay: 1s;
 }
 #text-2 {
-    animation-delay: 4.5s;
+    animation-delay: 1.5s;
 }
 
 /* Planet styling */
@@ -39,7 +39,8 @@
     border: 5vw solid var(--primary-color);
     border-radius: 50%;
     position: relative;
-    animation: spin 4s ease-out forwards;
+    /* animation: spin 4s ease-out forwards; */
+    transform: rotate(135deg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +50,7 @@
 .mark {
     position: absolute;
     width: 75%;
-    animation: approach 3s ease-in-out forwards;
+    animation: approach 1s ease-in-out forwards;
     transform: translateY(-300px);
     /* Start far from the planet */
     animation-delay: 0s;
@@ -114,6 +115,7 @@ header {
     transition: all 0.5s;
     overflow: hidden;
     cursor: default;
+    border-bottom: var(--border);
   }
   
   header h2 {
@@ -167,12 +169,13 @@ header {
   }
 
   footer {
+    align-self: flex-end;
     z-index: 10;
     background-color: var(--primary-color);
-    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    border-top: var(--border);
   }
   
   footer div {

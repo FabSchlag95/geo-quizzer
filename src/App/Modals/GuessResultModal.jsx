@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function GuessResultScreen({ latestGuess, nextGameState }) {
+export default function GuessResultModal({ latestGuess, nextGameState }) {
   return (
       <>
         <h3>{setHeadline(latestGuess?.distance)}</h3>

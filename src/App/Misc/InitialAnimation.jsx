@@ -5,7 +5,7 @@ import quizzerIcon from "../../assets/icons/quizzer-icon_secondary.png"
 export default function InitialAnimation({nextGameState}) {
 
   useEffect(()=>{
-    setTimeout(nextGameState,7000);
+    setTimeout(nextGameState,3000);
   },[nextGameState])
 
   return (

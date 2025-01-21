@@ -1,20 +1,19 @@
-export default function EndWindow({
+export default function EndModal({
   restartGame,
   win,
-  guesses,
+  lastGuess,
   roundPoints,
   globalPoints,
-  targetName,
+  round,
 }) {
   return (
     <>
-    <h4>The place was {targetName}.</h4>
-      <h3>{win ? "You got it!" : "Close but not close enough..."}</h3>
+      <h3>{win ? "You got it!" : "Sorry, not there yet..."}</h3>
       {win ? (
         <div>
           <p>
             {"You needed " +
-              guesses.length +
+              round +
               " guess(es) to get there. That means " +
               roundPoints +
               " points for you."}
@@ -23,12 +22,8 @@ export default function EndWindow({
         </div>
       ) : (
         <div>
-          <p>No more guesses left. That means you lost all your points.</p>
-          <p>
-            {"Your last guess was " +
-              guesses.slice(-1)[0].distance +
-              " kms away."}
-          </p>
+          <p>{"Your last guess was " + lastGuess.distance + " kms away."}</p>
+          <p>Try another place!</p>
         </div>
       )}
       <button onClick={restartGame}>New Place!</button>

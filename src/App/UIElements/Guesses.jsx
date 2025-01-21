@@ -2,7 +2,7 @@ export default function Guesses({ guesses, setPreviousMarker, maxCompassDistance
 
   console.log(guesses)
   return (
-    <div className="guess-bar">
+    <div className="guess-container">
       {guesses.map((guess, i) => (
         <Guess
           key={"guess"+i}
@@ -27,7 +27,7 @@ const Guess = ({ guess, i, setPreviousMarker, maxCompassDistance }) => {
       className="guess"
       style={{ backgroundColor: guess.color }}
     >
-      <div>
+      <>
         <a>{i + 1}. Guess:</a> <a>{guess?.distance || "--"} km </a>
         {guess?.distance && guess.distance <= maxCompassDistance && (
           <i
@@ -37,7 +37,7 @@ const Guess = ({ guess, i, setPreviousMarker, maxCompassDistance }) => {
             className={"fa-regular fa-circle-up"}
           ></i>
         )}
-      </div>
+      </>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 
-export default function Rules({ rules, onClick, isStart }) {
+export default function RulesModal({ rules, onClick, isStart }) {
   return (
     <>
       <h3>Rules:</h3>

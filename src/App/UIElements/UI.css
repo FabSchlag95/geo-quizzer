@@ -1,47 +1,107 @@
 .ui-container {
-    z-index: 10;
-    pointer-events: none;
-}
-
-.nav-header {
-    position: relative;
-    top: 0;
-    left: 0;
     display: flex;
+    padding: 1em;
+    z-index: 1;
+    pointer-events: none;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem;
-    height: fit-content;
+    flex: 1;
+    height: 100%;
 }
 
-.nav-header * {
-    pointer-events: all;
-}
 
-.nav-header-right div{
-    width: calc(var(--base-sizing)*7);
-    background-color: var(--primary-color);
+.hint-container {
+    pointer-events: none;
     display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    color: var(--font-color);
-    box-shadow: var(--shadow);
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    max-height: 80vh;
 }
 
-.global-points {
-    height: clamp(20px,5vh,100px);
+.hint-container details {
+    pointer-events: all;
+    width: calc(var(--base-sizing)*8);
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 10px;
-    margin-bottom: 1vh;
+    box-shadow: var(--shadow);
+    transition: width 0.5s;
+    border: var(--border);
+}
+
+.hint-container details[open] {
+    width: calc(var(--base-sizing)*15);
+}
+
+.hint-container details:hover {
+    width: calc(var(--base-sizing)*15);
+}
+
+.hint-container details p {
+    padding-block: 0.5em;
+}
+
+.ui-container-right {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    pointer-events: all;
+    align-items: flex-end;
+    gap: 1em;
+}
+
+.ui-container-right * {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.scoring-container {
+    display: flex;
+    max-width: 20vw;
+    gap: 0.5em;
+}
+
+.scoring-container div {
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    width: 70px;
+    max-width: fit-content;
+    padding-block: 5px;
+    padding-inline: 10px;
+    box-shadow: var(--shadow);
+    border: var(--border);
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    transition: all 0.5s ease;
+    text-wrap: nowrap;
+    text-align: center;
+    transition-delay: 0.1s;
+}
+
+.hidden-text {
+    display: none;
+    overflow-x: hidden;
+}
+.scoring-container div:hover{
+    width: 200px;
+    transition: all 0.5s ease;
+}
+.scoring-container div:hover .hidden-text {
+    display: block;
 }
 
 .clock {
-    height: calc(var(--base-sizing)*7);
-    border-radius: 100px;
+    width: 8vw;
     aspect-ratio: 1;
-    font-weight: 300;
+    border-radius: 100px;
     font-size: var(--h2-font-size);
     font-weight: 400;
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow);
+    border: var(--border);
+    justify-content: center;
 }
 
 #alarm {
@@ -56,81 +116,50 @@
     }
 }
 
-.hint-dropdown {
-    pointer-events: none;
+.guess-container {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 80vh;
+    gap: 0.5em;
 }
-
-.hint-dropdown details {
-    pointer-events: all;
-    width: calc(var(--base-sizing)*8);
-    max-height: fit-content;
-    background-color: var(--primary-color);
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    margin: 1vh 1vw 0 0;
-    transition: width 0.5s;
-}
-
-.hint-dropdown details[open] {
-    width: calc(var(--base-sizing)*15);
-}
-
-.hint-dropdown details:hover {
-    width: calc(var(--base-sizing)*15);
-}
-
-.guess-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    position: absolute;
-    right: 0;
-    padding: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 
 .guess {
-    margin-right: 0;
-    margin-left: auto;
-    margin-bottom: 1vh;
-    padding: 1vh 2vw 1vh 2vw;
     border-radius: 5rem;
     box-shadow: var(--shadow);
     cursor: pointer;
     overflow-x: hidden;
     pointer-events: all;
+    min-width: 100%;
+    width: 100%;
+    padding: 5px;
+    padding-inline: 20px;
+    border: var(--border);
+    transition: width 0.5s ease;
+    align-self: flex-end;
+    gap: 5px;
+}
+
+.guess:hover {
+    width: calc(100% + 20px);
 }
 
 .confirm-guess {
-    position: absolute;
+    max-width: fit-content;
+    aspect-ratio: 1;
     border-radius: 5vh;
-    z-index: 2;
-    bottom: 5vh;
-    right: 10vh;
-    transform: translateY(-50%) translateX(50%);
-    background-color: transparent;
+    cursor: pointer;
     box-shadow: var(--shadow);
     transition: color 0.5s;
-    transition: all 0.5s;
-    pointer-events: all;
-    cursor: pointer;
+    margin-top: auto;
 }
-
 
 .active {
     color: var(--primary-color);
     font-size: var(--h1-font-size);
+    border: var(--border);
 }
 
 .active:hover {
-    background-color: var(--accent-color);
+    background-color: black;
 }
 
 .inactive {

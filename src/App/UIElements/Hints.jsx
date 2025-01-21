@@ -1,22 +1,23 @@
-import React, { memo } from "react";
+import ImageComponent from '../../components/ImageComponent'
 
-const Hints = memo(({ activeHints })=>{
+const Hints = ({ activeHints }) => {
   return (
-    <div className="hint-dropdown">
+    <div className="hint-container">
       {activeHints.map((hint, i) => (
         <Hint
           key={i}
-          hintText={hint}
+          hintText={hint.text}
+          image={hint.image}
           i={i}
           isLast={activeHints.slice(-1) == hint}
         />
       ))}
     </div>
   );
-})
+};
 
 function Hint(props) {
-  const { hintText, i, isLast } = props;
+  const { hintText, image, i, isLast } = props;
   return (
     <>
       {isLast ? (
@@ -28,10 +29,11 @@ function Hint(props) {
         <details>
           <summary>{i + 1}. Hint</summary>
           <p>{hintText}</p>
+          {image && <ImageComponent imagePath={image}/>}
         </details>
       )}
     </>
   );
 }
 
-export default Hints
+export default Hints;

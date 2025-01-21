@@ -1,56 +1,55 @@
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    flex: 1;
     z-index: 5;
     background-color: #0005;
     backdrop-filter: blur(10px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-.container-screen {
-    position: relative;
+.end-modal {
+    backdrop-filter: none;
+    background-color: transparent;
+    justify-content: space-between;
+    padding-block: 20;
+}
+
+.overlay h2 {
+    margin-top: 50px;
+    color: var(--primary-color);
+    text-shadow: var(--shadow);
+}
+
+.modal-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-between;
-    width: clamp(300px, 40vw, 50vw);
+    gap: 1em;
+    width: fit-content;
+    max-width: 600px;
     height: fit-content;
     max-height: 80vh;
     background-color: var(--background-color);
-    overflow: hidden;
+    overflow: auto;
     padding: 2rem;
     text-align: left;
     box-shadow: var(--shadow);
     border-radius: 1rem;
+    border: var(--border);
 }
 
-.container-screen ul{
+.modal-container ul{
     max-height: 70%;
     flex:1;
     overflow-y: auto;
 }
 
-.container-screen p {
+.modal-container p {
     padding-inline: 5vw;
     text-align: center;
-}
-
-.end-window {
-    position: absolute;
-    z-index: 10;
-    bottom: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.end-window * {
-    margin-block: 1vh;
 }
 
 li {
@@ -58,3 +57,13 @@ li {
     list-style-type: circle;
     margin-inline: 10%;
 }
+
+.intermediate-rules {
+    z-index: 12;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    max-height: 90vh;
+}
+

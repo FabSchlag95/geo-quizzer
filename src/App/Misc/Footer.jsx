@@ -1,9 +1,9 @@
-import { memo } from "react";
 
-const Footer = memo(()=>{
+
+const Footer = ()=>{
     return (
         <footer>
-          <div>GeoQuizzer</div>
+          <div>GeoQuizzer 2025</div>
           <div>
             <a
               href="https://leafletjs.com"
@@ -32,6 +32,6 @@ const Footer = memo(()=>{
           </div>
         </footer>
       );
-})
+}
 
 export default Footer
