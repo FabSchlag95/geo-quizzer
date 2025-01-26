@@ -119,3 +119,7 @@ GeoQuizzer is a quiz game that combines location guessing and quiz game play. So
 - https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Ayers_Rock-view_from_50k.jpg/1024px-Ayers_Rock-view_from_50k.jpg
 - https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Friedrich_Eibner_Marienplatz_in_M%C3%BCnchen.jpg/1280px-Friedrich_Eibner_Marienplatz_in_M%C3%BCnchen.jpg
 - https://upload.wikimedia.org/wikipedia/commons/1/10/Bushes_watch_USA_vs._Czech_Republic_women%27s_basketball_game_at_2008_Summer_Olympics_2008-08-09.jpg?2010041618161
+- https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/USS_Arizona_in_New_York_City_Crisco_edit.jpg/981px-USS_Arizona_in_New_York_City_Crisco_edit.jpg
+- https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nybrogatan_Stockholm_2022-09-20_01.jpg/1024px-Nybrogatan_Stockholm_2022-09-20_01.jpg"
+- https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Brandenburg-townhall.JPG/512px-Brandenburg-townhall.JPG
+- 

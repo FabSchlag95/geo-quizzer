@@ -18,7 +18,14 @@ export default function ImageComponent({ image, style }) {
       <div
         onClick={handleFullscreen}
         className="img-div"
-        style={{ backgroundImage: `url(${image})`, minHeight:aspectRatio<=1&&"200px", height:aspectRatio<=1&&"100%", width:aspectRatio>1&&"100%", aspectRatio, ...style }}
+        style={{
+          backgroundImage: `url(${image})`,
+          minHeight: aspectRatio <= 1 && "200px",
+          height: aspectRatio <= 1 && "100%",
+          width: aspectRatio > 1 && "100%",
+          aspectRatio,
+          ...style,
+        }}
       />
       {fullscreen && (
         <FullscreenImage image={image} deactivate={handleFullscreen} />

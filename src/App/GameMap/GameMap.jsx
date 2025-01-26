@@ -88,9 +88,9 @@ const GameMap = () => {
         }
         {
           // set marker on the map which the user has activated
-          previousMarker.map((guess) => (
+          previousMarker.map((guess, index) => (
             <Marker
-              key={guess?.distance}
+              key={index}
               position={guess.coords}
               icon={compassMarker(guess.color, 50, guess.angleToTarget)}
             />

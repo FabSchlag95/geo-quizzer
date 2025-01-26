@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <img src={quizzerIcon} alt="logo" className="logo" />
+        <img src={quizzerIcon} alt="GeoQuizzer Logo" className="logo" />
         <h2>GeoQuizzer</h2>
         <div className="header-options">
           {/* <TextButton activeWhen={null} onClick={nextGameState}>nextGameState</TextButton> //Testing only */}

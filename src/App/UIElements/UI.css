@@ -21,7 +21,7 @@
     flex-wrap: wrap;
     gap: 0.5em;
     max-height: 80vh;
-    max-width: 20vw;
+    max-width: 15vw;
     width: 15vw;
     min-width: fit-content;
 }
@@ -41,7 +41,7 @@
 
 .hint-container details p {
     text-wrap: wrap;
-    max-width: 20vw;
+    max-width: 15vw;
 }
 
 .hint-container summary {
@@ -53,7 +53,7 @@
     cursor: pointer;
 }
 
-.hint-container details:hover {
+.hint-container details:not([open]):hover {
     width: 100%;
 }
 
@@ -111,7 +111,7 @@ summary::marker {
 
 .add-btn:not(:disabled):hover {
     aspect-ratio: unset;
-    width: 100%;
+    width: 15vw;
     transition: all 0.3s ease;
 }
 
@@ -129,7 +129,9 @@ summary::marker {
 .add-spare-guess-btn {
     margin-left: auto;
 }
-
+.add-spare-guess-btn:not(:disabled):hover {
+    width: 100%;
+}
 
 
 /* css for right side of ui */
@@ -245,10 +247,9 @@ summary::marker {
     box-shadow: var(--shadow);
     background-color: lightgrey;
     border: 2px dashed var(--accent-color);
-    min-width: 100%;
     width: 100%;
     padding: 5px;
-    padding-inline: 20px;
+    padding-inline: 30px;
     opacity: 50%;
     justify-content: center;
 }

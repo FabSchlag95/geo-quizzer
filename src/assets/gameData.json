@@ -1,13 +1,12 @@
 {
   "rules": [
     "Your task is to locate a specific place on the map.",
-    "When you start, you will receive the first of five hints to find the location. Don't worry if the first hint seems unhelpful; initial hints are often challenging. However, it might still be enough to identify the location.",
-    "You will have 60 seconds to make a guess for each hint.",
-    "Once you make your guess, the current round ends. If you haven't found the location, you will receive the next hint.",
-    "Don't feel discouraged if the hints seem unclear. You will also get information about the distance between your previous guesses and the target location. Consider using a strategic approach when placing your guesses.",
-    "Oh, and 'finding' the location means getting within a radius of about 50 km, so there's no need to be overly precise.",
-    "If your guess is within a certain distance, you'll receive a small compass by clicking on your previous hint.",
-    "Tip: Some hints might be riddles. Enjoy the game!"
+    "When you start, you will receive an image and a short text as a first hint. Tip: Look a little closer by clicking on the image.",
+    "Then you'll have 5 minutes to find the location.",
+    "You have 3 guesses for free, but you can purchase 2 more additionally.",
+    "You can also get two more hints to help you.",
+    "By clicking on your previous hint, you can purchase a compass to get the right direction. Use wisely!",
+    "Oh, and 'finding' the location means getting within a radius of about 50 km, so there's no need to be overly precise."
   ],
   "items": [
     {
@@ -15,7 +14,7 @@
         "name": "Los Angeles",
         "coords": { "lat": 34.052222, "lng": -118.243611 }
       },
-      "difficulty":1,
+      "difficulty": 2,
       "hints": [
         {
           "text": "Probably the most famous beach of the city. They call this city 'The Big Orange'.",
@@ -34,7 +33,7 @@
         "name": "Prague",
         "coords": { "lat": 50.08804, "lng": 14.42076 }
       },
-      "difficulty":2,
+      "difficulty": 2,
       "hints": [
         {
           "text": "We are looking for the place where this famous author was born.",
@@ -53,7 +52,7 @@
         "name": "Chernobyl",
         "coords": { "lat": 51.276667, "lng": 30.221944 }
       },
-      "difficulty":2,
+      "difficulty": 2,
       "hints": [
         {
           "text": "A disastrous event set an end to this hotel's era. Where could it be?",
@@ -72,7 +71,7 @@
         "name": "Machu Picchu",
         "coords": { "lat": -13.163141, "lng": -72.544963 }
       },
-      "difficulty":2,
+      "difficulty": 2,
       "hints": [
         {
           "text": "Long forgotten, too high in the mountains...",
@@ -91,7 +90,7 @@
         "name": "Angkor Wat",
         "coords": { "lat": 13.412469, "lng": 103.866986 }
       },
-      "difficulty":3,
+      "difficulty": 3,
       "hints": [
         {
           "text": "This relief stems from the reign of Suryavarman II. It is on a famous temple.",
@@ -110,7 +109,7 @@
         "name": "Boulevard du temple, Paris",
         "coords": { "lat": 48.85797, "lng": 2.3599 }
       },
-      "difficulty":3,
+      "difficulty": 3,
       "hints": [
         {
           "text": "This photo might not look any interesting, but for its time it mere existence was a revolution. Where was it taken?",
@@ -123,30 +122,13 @@
           "text": "The site is a symbol of the Khmer Empire and appears on the national flag."
         }
       ]
-    },{
-      "target": {
-        "name": "Lake Baikal, Russia",
-        "coords": { "lat": 53.5587, "lng": 108.165 }
-      },
-      "difficulty":2,
-      "hints": [
-        {
-          "text": "This ice shield covers the world's deepest freshwater lake, containing about 20% of the Earth's unfrozen fresh water.",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ice-cream-2097480.jpg/900px-Ice-cream-2097480.jpg?20220407144753"
-        },
-        {
-          "text": "Despite of its ice shield it is rather in the south of its country."
-        },
-        {
-          "text": "It's in asia."
-        }
-      ]
-    },{
+    },
+    {
       "target": {
         "name": "Beijing, China",
         "coords": { "lat": 39.9042, "lng": 116.4074 }
       },
-      "difficulty":3,
+      "difficulty": 3,
       "hints": [
         {
           "text": "US-president Bush attending the basketball game USA vs. Czech Republic. Where was the game played? Hint: not in the USA.",
@@ -159,15 +141,16 @@
           "text": "The city contains another city that, according to it's name, must not be visited."
         }
       ]
-    },{
+    },
+    {
       "target": {
         "name": "Mount Kilimanjaro, Tanzania",
         "coords": { "lat": -3.0674, "lng": 37.3556 }
       },
-      "difficulty":3,
+      "difficulty": 3,
       "hints": [
         {
-          "text": "This is tallest free-standing mountain in the world. Where is it located?",
+          "text": "This is the tallest free-standing mountain in the world. Where is it located?",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Kilimanjaro_2006-08-13.JPG/800px-Kilimanjaro_2006-08-13.JPG"
         },
         {
@@ -177,12 +160,13 @@
           "text": "This iconic mountain is located in near the border of two african countries."
         }
       ]
-    },{
+    },
+    {
       "target": {
         "name": "Ayers Rock, Australia",
         "coords": { "lat": -25.345278, "lng": 131.034722 }
       },
-      "difficulty":2,
+      "difficulty": 3,
       "hints": [
         {
           "text": "This is the 'Uluru' mountain. However, most people know it under its english name.",
@@ -201,7 +185,7 @@
         "name": "Marienplatz Munich, Germany",
         "coords": { "lat": 48.1351, "lng": 11.582 }
       },
-      "difficulty":1,
+      "difficulty": 1,
       "hints": [
         {
           "text": "This city still looks a lot like this...",
@@ -212,6 +196,101 @@
         },
         {
           "text": "It is also famous for its football club."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "New York City, USA",
+        "coords": { "lat": 40.7128, "lng": -74.006 }
+      },
+      "difficulty": 1,
+      "hints": [
+        {
+          "text": "From this construction work you have a good sight over which city?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/USS_Arizona_in_New_York_City_Crisco_edit.jpg/981px-USS_Arizona_in_New_York_City_Crisco_edit.jpg"
+        },
+        {
+          "text": "It was founded by dutch traders and called 'New Amsterdam'."
+        },
+        {
+          "text": "This city is often called 'The Big Apple' and is one of the most iconic urban centers in the world."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Stockholm, Sweden",
+        "coords": { "lat": 59.3293, "lng": 18.0686 }
+      },
+      "difficulty": 2,
+      "hints": [
+        {
+          "text": "Where is this shopping street located?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nybrogatan_Stockholm_2022-09-20_01.jpg/1024px-Nybrogatan_Stockholm_2022-09-20_01.jpg"
+        },
+        {
+          "text": "It is home to the Nobel Prize ceremonies and the historic Gamla Stan (Old Town)."
+        },
+        {
+          "text": "This city, spread across 14 islands, is often called the 'Venice of the North.'"
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Brandenburg an der Havel, Germany",
+        "coords": { "lat": 52.416, "lng": 12.55 }
+      },
+      "difficulty": 3,
+      "hints": [
+        {
+          "text": "What city is the statue 'Roland' protecting?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Brandenburg-townhall.JPG/512px-Brandenburg-townhall.JPG"
+        },
+        {
+          "text": "It is the birthplace of German comedian and author Loriot."
+        },
+        {
+          "text": "This city gives its name to the surrounding state, which also encompasses Berlin."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Berlin, Germany",
+        "coords": { "lat": 52.52, "lng": 13.405 }
+      },
+      "difficulty": 1,
+      "hints": [
+        {
+          "text": "These pieces of concrete do not look harmful (anymore)...",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Lugares_de_Berl%C3%ADn_03.jpg/1024px-Lugares_de_Berl%C3%ADn_03.jpg"
+        },
+        {
+          "text": "This city is known for its vibrant cultural scene, including its museums, music, and nightlife."
+        },
+        {
+          "text": "The city is a european capital."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Mount Fuji, Japan",
+        "coords": { "lat": 35.3606, "lng": 138.7274 }
+      },
+      "difficulty": 2,
+      "hints": [
+        {
+          "text": "Don't I know this mountain from a different painting?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/%E5%86%A8%E5%B6%BD%E4%B8%89%E5%8D%81%E5%85%AD%E6%99%AF_%E6%9D%B1%E6%B5%B7%E9%81%93%E9%87%91%E8%B0%B7%E3%81%AE%E4%B8%8D%E4%BA%8C-Fuji_Seen_from_Kanaya_on_the_T%C5%8Dkaid%C5%8D_%28T%C5%8Dkaid%C5%8D_Kanaya_no_Fuji%29%2C_from_the_series_Thirty-six_Views_of_Mount_Fuji_%28Fugaku_sanj%C5%ABrokkei%29_MET_DP141002.jpg/1024px-thumbnail.jpg"
+        },
+        {
+          "text": "This 'mountain' is an active volcano that last erupted in 1707 during the Edo period."
+        },
+        {
+          "text": "It is not to far from the country's capital, located next to the sea."
         }
       ]
     }

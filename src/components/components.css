@@ -52,13 +52,11 @@
 
 .fullscreen-img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 100;
-  width: calc(100vw - 20px);
-  height: calc(100vh - 20px);
-  padding: 100px;
+  top: 10vh;
+  bottom: 7vh;
+  left: 1vw;
+  right: 1vw;
+  z-index: 2;
   background-repeat: no-repeat;
   background-size: contain;
 }

@@ -4,15 +4,22 @@
  * It also provides details about the user's performance and allows them to start a new round.
  *
  * @component
- * 
+ *
  */
 
 import { useContext } from "react";
 import { gameContext } from "../contexts";
 
 export default function EndModal() {
-  const { restartGame, win, lastGuess, currentItem, credits, itemsFound, creditsWon } =
-    useContext(gameContext);
+  const {
+    restartGame,
+    win,
+    lastGuess,
+    currentItem,
+    credits,
+    itemsFound,
+    creditsWon,
+  } = useContext(gameContext);
   return (
     <>
       <h2 style={{ color: win ? "var(--secondary-color)" : "var(--red)" }}>
@@ -26,15 +33,25 @@ export default function EndModal() {
         }}
       >
         <h3>{`It's ${currentItem?.target?.name}!`}</h3>
-        {win ? 
+        {win ? (
           <div>
-            <p>You earned {creditsWon} extra credits. So, now you have {credits} credits for the next rounds. </p>
-            <p>Your streak is now at {itemsFound} item(s) found in a row. Keep going!</p>
+            <p>
+              You earned {creditsWon} extra credits. So, now you have {credits}{" "}
+              credits for the next rounds.{" "}
+            </p>
+            <p>So far, you found {itemsFound} item(s) in a row. Keep going!</p>
           </div>
-         : (
+        ) : (
           <div>
-            <p>{lastGuess?"Your last guess was " + lastGuess.distance + " kms away.":"You didn't even set a final guess."}</p>
-            <p>This round ends for you. Your last streak was {itemsFound} items found.</p>
+            <p>
+              {lastGuess?.distance
+                ? "Your last guess was " + lastGuess.distance + " kms away."
+                : "You didn't even set a final guess."}
+            </p>
+            <p>
+              This round ends for you. You have found {itemsFound} item(s) in a
+              row.
+            </p>
           </div>
         )}
         <button onClick={() => restartGame(win)}>New Place!</button>
