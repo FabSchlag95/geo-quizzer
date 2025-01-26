@@ -1,0 +1,106 @@
+/*  Animation */
+.scene {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #000814, #001d3d);
+    overflow: hidden;
+    animation: fade-away 1s ease-out;
+    animation-delay: 3s;
+}
+
+.scene .text {
+    color: var(--background-color);
+    font-weight: bolder;
+    font-size: 700%;
+    animation: fade-in 2s ease-out;
+    opacity: 0%;
+}
+
+#text-1 {
+    animation-delay: 1s;
+}
+
+#text-2 {
+    animation-delay: 1.5s;
+}
+
+
+
+/* Planet styling */
+.circle {
+    width: 15vw;
+    aspect-ratio: 1;
+    background: transparent;
+    border: 2vw solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    /* animation: spin 4s ease-out forwards; */
+    transform: rotate(135deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: var(--secondary-color);
+}
+
+
+/* Landmarks */
+.mark {
+    position: absolute;
+    width: 75%;
+    animation: approach 1s ease-in-out forwards;
+    /* Start far from the planet */
+    animation-delay: 0s;
+}
+
+
+@media screen and (max-width: 768px) {
+    .circle{
+        width: 50px;
+        border: 5px solid var(--background-color);
+    }
+    .scene .text {
+        padding-inline: 10px;
+        font-size: 300%;
+    }
+}
+
+/* Keyframes for mark approach */
+@keyframes approach {
+    0% {
+        transform: translateY(-50vw);
+    }
+
+    100% {
+        transform: translateY(-45%);
+    }
+}
+
+
+@keyframes fade-away {
+    0% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+

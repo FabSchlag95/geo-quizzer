@@ -1,16 +1,27 @@
-import React from "react";
+/**
+ * GuessResultModal component displays the result of the user's latest guess if the round is not over.
+ * It shows a headline based on the distance of the guess from the target location
+ * and a message indicating how far the guess is from the target.
+ * It also provides a button to proceed to the next game state.
+ *
+ * @component
+ */
+import { useContext, useState } from "react";
+import { gameContext } from "../contexts";
 
-export default function GuessResultModal({ latestGuess, nextGameState }) {
+export default function GuessResultModal() {
+const { guesses, nextGameState } = useContext(gameContext);
+const [currentGuess, setCurrentGuess] = useState(guesses.slice(-1)[0]);
   return (
       <>
-        <h3>{setHeadline(latestGuess?.distance)}</h3>
+        <h3>{setHeadline(currentGuess?.distance)}</h3>
         <p>
-          { latestGuess?.distance
-            ? `Your guess is located ${latestGuess.distance} km from the place we are looking for.`
+          { currentGuess?.distance
+            ? `Your guess is located ${currentGuess.distance} km from the place we are looking for.`
             : "You have not set a guess on the map."}
         </p>
         <button onClick={nextGameState}>
-          Next Hint!
+          Continue!
         </button>
       </>
   );

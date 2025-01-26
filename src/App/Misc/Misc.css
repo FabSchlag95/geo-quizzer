@@ -1,105 +1,3 @@
-/*  Animation */
-.scene {
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle, #000814, #001d3d);
-    overflow: hidden;
-    animation: fade-away 1s ease-out;
-    animation-delay: 3s;
-}
-
-.scene .text {
-    color: var(--background-color);
-    font-weight: bolder;
-    font-size: 700%;
-    animation: fade-in 2s ease-out;
-    opacity: 0%;
-}
-
-#text-1 {
-    animation-delay: 1s;
-}
-#text-2 {
-    animation-delay: 1.5s;
-}
-
-/* Planet styling */
-.circle {
-    width: 25%;
-    aspect-ratio: 1;
-    background: transparent;
-    border: 5vw solid var(--primary-color);
-    border-radius: 50%;
-    position: relative;
-    /* animation: spin 4s ease-out forwards; */
-    transform: rotate(135deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Landmarks */
-.mark {
-    position: absolute;
-    width: 75%;
-    animation: approach 1s ease-in-out forwards;
-    transform: translateY(-300px);
-    /* Start far from the planet */
-    animation-delay: 0s;
-}
-
-/* Keyframes for spinning planet */
-@keyframes spin {
-    0% {
-        transform: rotate(-360deg);
-    }
-
-    100% {
-        transform: rotate(135deg);
-    }
-}
-
-/* Keyframes for landmark approach */
-@keyframes approach {
-    0% {
-        transform: translateY(-50vw);
-    }
-
-    100% {
-        transform: translateY(-60%);
-    }
-}
-
-
-@keyframes fade-away {
-    0% {
-        opacity: 100%;
-    }
-
-    100% {
-        opacity: 0%;
-    }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0%;
-    }
-
-    100% {
-        opacity: 100%;
-    }
-}
-
-
 /* Header & Footer */
 
 
@@ -112,72 +10,86 @@ header {
     background-color: var(--primary-color);
     z-index: 10;
     height: fit-content;
-    transition: all 0.5s;
+    max-height: 10vh;
     overflow: hidden;
     cursor: default;
     border-bottom: var(--border);
-  }
-  
-  header h2 {
-    color: transparent;
-    transition: all 0.5s ease-in;
-  }
-  
-  .header-options {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    justify-content: left;
-    margin-top: 10vh;
-    margin-right: 2vw;
-    transition: all 0.5s ease-in-out;
-  }
-  
-  .header-shown * {
-    margin-top: 0;
-    color: var(--font-color);
-    transition: all 0.5s ease-in-out;
-  }
+}
 
-  header .logo {
-    position: absolute;
-    left: 1vw;
-    top: 50%;
-    transform: translateY(-50%);
-    visibility: hidden;
-    max-height: 80%;
-    aspect-ratio: 1;
-  }
-
-  @media (max-width: 1000px) {
+@media screen and (max-width: 768px) {
     header {
-        justify-content:flex-start;
-        padding-inline: 1em;
+        max-height: 15px;
+        transition: max-height 0.3s ease;
+        font-size: calc(var(--base-sizing) / 2);
     }
-  }
 
-  @media (max-width: 768px) {
+    header * {
+        text-wrap: nowrap;
+        font-size: calc(var(--base-sizing) / 2);
+    }
+
+    header:hover {
+        max-height: 50px;
+    }
+
+    header:hover * {
+        text-wrap: nowrap;
+        font-size: calc(var(--base-sizing));
+    }
+
+    footer {
+        max-height: 15px;
+        transition: max-height 0.3s ease;
+    }
+
+    footer:hover {
+        max-height: fit-content;
+        max-height: 50px;
+    }
+}
+
+header h2 {
+    position: sticky;
+    right: 50%;
+    transform: translateX(50%);
+    margin-inline: 150px;
+}
+
+.header-options {
+    display: flex;
+    justify-content: right;
+    padding-right: 2vw;
+    text-wrap: nowrap;
+}
+
+header .logo {
+    margin-left: 1vw;
+    margin-right: auto;
+    visibility: hidden;
+    aspect-ratio: 1;
+    max-height: var(--h2-font-size);
+}
+
+@media (max-width: 768px) {
     header h2 {
-        visibility: hidden;
+        display: none;
     }
 
     header .logo {
         visibility: visible;
+        z-index: 10;
     }
 
-  }
+}
 
-  footer {
-    align-self: flex-end;
+footer {
+    margin-top: auto;
     z-index: 10;
     background-color: var(--primary-color);
-    bottom: 0;
-    left: 0;
     width: 100%;
     border-top: var(--border);
-  }
-  
-  footer div {
+}
+
+footer div {
     font-size: clamp(0.5rem, 0.77vw, 1rem);
-  }
+}

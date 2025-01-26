@@ -1,3 +1,13 @@
+/**
+ * MainModal component provides structuring and conditional display of all modal screens.
+ * It renders different modals based on the current screen state from the game context.
+ *
+ * - If the current screen is "END_SCREEN", it displays the EndModal within an custom overlay.
+ * - For other screens, it displays the corresponding modal (RulesModal, HintModal, or GuessResultModal) within a modal container
+ *  and a default overlay.
+ *
+ * @component
+ */
 import "./Modal.css";
 import RulesModal from "./RulesModal";
 import HintModal from "./HintModal";
@@ -7,86 +17,29 @@ import { useContext } from "react";
 import { gameContext } from "../contexts";
 
 export default function MainModal() {
-  const {
-    rules,
-    currentScreen,
-    restartGame,
-    nextGameState,
-    toggleRules,
-    activeHints,
-    guesses,
-    win,
-    roundPoints,
-    globalPoints,
-    currentItem,
-    showRules,
-    lastGuess,
-    round,
-  } = useContext(gameContext);
+  const { currentScreen } = useContext(gameContext);
 
-  if (currentScreen)
-    return (
-      <div
-        className={
-          "overlay " + (currentScreen === "END_SCREEN" ? "end-modal" : "")
-        }
-      >
-        <>
-          {currentScreen === "END_SCREEN" && (
-            <h2>{`It's ${currentItem?.target?.name}!`}</h2>
-          )}
-          <div
-            className="modal-container"
-            style={
-              currentScreen === "END_SCREEN"
-                ? {
-                    backdropFilter: "blur",
-                    backgroundColor: "var(--background-color-transparent)",
-                  }
-                : {}
-            }
-          >
+  if (currentScreen) {
+    if (currentScreen === "END_SCREEN") {
+      return (
+        <div className="end-modal-overlay">
+          <EndModal />
+        </div>
+      );
+    } else {
+      return (
+        <div className="overlay">
+          <div className="modal-container">
             {
               {
-                INFO: (
-                  <RulesModal
-                    rules={rules}
-                    onClick={nextGameState}
-                    isStart={true}
-                  />
-                ),
-                HINT: (
-                  <HintModal
-                    activeHints={activeHints}
-                    nextGameState={nextGameState}
-                  />
-                ),
-                GUESS_RESULT: (
-                  <GuessResultModal
-                    latestGuess={guesses.slice(-1)[0]}
-                    nextGameState={nextGameState}
-                  />
-                ),
-                END_SCREEN: (
-                  <EndModal
-                    restartGame={restartGame}
-                    win={win}
-                    lastGuess={lastGuess}
-                    globalPoints={globalPoints}
-                    roundPoints={roundPoints}
-                    round={round}
-                  />
-                ),
+                INFO: <RulesModal />,
+                HINT: <HintModal />,
+                GUESS_RESULT: <GuessResultModal />,
               }[currentScreen]
             }
           </div>
-        </>
-      </div>
-    );
-  else if (showRules)
-    return (
-      <div className="modal-container intermediate-rules">
-        <RulesModal rules={rules} onClick={toggleRules} isStart={false} />
-      </div>
-    );
+        </div>
+      );
+    }
+  }
 }

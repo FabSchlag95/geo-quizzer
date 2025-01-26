@@ -1,27 +1,38 @@
-import { useContext, useEffect, useRef, useState } from "react";
+/**
+ * GameMap component renders the interactive map for the game.
+ * It uses the react-leaflet library to display the map and handle map events.
+ * The component updates based on the game state and user interactions.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered GameMap component.
+ */
+
+import { useContext, useEffect, useState } from "react";
 import {
   MapContainer,
   TileLayer,
   useMapEvents,
   useMap,
-  GeoJSON,
   Marker,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 import { gameContext } from "../contexts";
-import { compassMarker, defaultMarker, quizzerMarker } from "./customIcon";
+import { compassMarker, quizzerMarker, targetMarker } from "./customIcon";
 import { Polyline } from "react-leaflet";
 
 const GameMap = () => {
   const {
     showBorders,
-    borders,
+    coordsToGo,
     changeSettings,
     tempCoords,
     previousMarker,
     currentItem,
     lastGuess,
+    stateName,
+    maps,
+    map,
   } = useContext(gameContext);
   const [endScreenZoom, setEndScreenZoom] = useState(null);
 
@@ -33,11 +44,14 @@ const GameMap = () => {
     }
   }, [lastGuess]);
 
+  // don't mount the map at game start to prevent sever spamming
+  if (stateName === "INITIAL") return;
+
   return (
     <>
       <MapContainer
         center={[50, 50]}
-        maxZoom={9}
+        maxZoom={15}
         minZoom={2}
         zoom={5}
         scrollWheelZoom={true}
@@ -48,55 +62,37 @@ const GameMap = () => {
         maxBoundsViscosity={0.5}
         worldCopyJump={false}
       >
-        <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png" />
+        {maps && map && <TileLayer url={maps[map]} />}
+        {showBorders && (
+          <TileLayer url="https://tiles.stadiamaps.com/tiles/stamen_terrain_lines/{z}/{x}/{y}{r}.png" />
+        )}
         <MapEventComponent
           setTempCoords={(coords) => changeSettings({ tempCoords: coords })}
         />
 
         {
-          // The border paths shown on map which is optional for the user
-          showBorders && (
-            <GeoJSON
-              data={borders}
-              style={{
-                color: "var(--accent-color)",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0,
-              }}
-            />
-          )
-        }
-
-        {
           // set the active quizzing marker on the map
           tempCoords && (
-            <Marker position={tempCoords} icon={quizzerMarker(50)} />
+            <Marker position={tempCoords} icon={quizzerMarker(40)} />
           )
         }
         {
-          // set a marker on the map, this is depending on the tempCoords which get set by user clicking on the map
-          previousMarker && (
-            <>
-              <Marker
-                position={previousMarker.coords}
-                icon={
-                  previousMarker.showCompass
-                    ? compassMarker(
-                        previousMarker.color,
-                        50,
-                        previousMarker.angleToTarget
-                      )
-                    : defaultMarker(previousMarker.color, 50)
-                }
-              />
-              <MapGoToLocation position={previousMarker.coords} />
-            </>
-          )
+          // set marker on the map which the user has activated
+          previousMarker.map((guess) => (
+            <Marker
+              key={guess?.distance}
+              position={guess.coords}
+              icon={compassMarker(guess.color, 50, guess.angleToTarget)}
+            />
+          ))
         }
+        {coordsToGo && <MapGoToLocation position={coordsToGo} />}
         {lastGuess && endScreenZoom && currentItem && (
           <>
-            <Marker position={currentItem.target.coords} />
+            <Marker
+              icon={targetMarker(40)}
+              position={currentItem.target.coords}
+            />
             <MapGoToLocation
               position={currentItem.target.coords}
               zoom={endScreenZoom}
@@ -114,8 +110,14 @@ const GameMap = () => {
 GameMap.displayName = "GameMap";
 export default GameMap;
 
-// Additional Map related Components and Functions
-// functional component for click handling
+/**
+ * Functional component handles map click events to set temporary coordinates.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Function} props.setTempCoords - Function to set temporary coordinates.
+ * @returns {null} This component does not render anything.
+ */
 function MapEventComponent({ setTempCoords }) {
   useMapEvents({
     click(e) {
@@ -125,7 +127,15 @@ function MapEventComponent({ setTempCoords }) {
   return null;
 }
 
-// functional component for zooming to a location
+/**
+ * Functional component zooms the map to a specified location.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Array} props.position - The coordinates to zoom to.
+ * @param {number} [props.zoom] - The zoom level to set; can be omitted.
+ * @returns {null} This component does not render anything.
+ */
 function MapGoToLocation({ position, zoom }) {
   const map = useMap();
   useEffect(() => {
@@ -136,18 +146,10 @@ function MapGoToLocation({ position, zoom }) {
   return null;
 }
 
-// NOT USED IN CURRENT VERSION
 // helper function to get a zoom to target relative to distance of latest guess/ previous marker
 function getRelativeZoom(distance) {
   // short Distance: zoom=10; long distance:zoom=2
   const maxDistance = 20000; // earth circumference / 2 ~ 20000km
   const zoom = 10 - Math.pow(distance / maxDistance, 0.2) * 8; // 2-10
   return zoom;
-}
-
-// helper function to get the middle between the targetCoords and the guessCoords
-function getMiddleBetweenCoords(coords1, coords2) {
-  const lng = (coords1.lng + coords2.lng) / 2;
-  const latWithOffset = Math.min(coords1.lat, coords2.lat);
-  return [latWithOffset, lng];
 }

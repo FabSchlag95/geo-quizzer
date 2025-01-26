@@ -9,7 +9,11 @@
     height: 100%;
 }
 
+.ui-container {
+    pointer-events: none;
+}
 
+/* Hint related ui css */
 .hint-container {
     pointer-events: none;
     display: flex;
@@ -17,36 +21,122 @@
     flex-wrap: wrap;
     gap: 0.5em;
     max-height: 80vh;
+    max-width: 20vw;
+    width: 15vw;
+    min-width: fit-content;
 }
 
 .hint-container details {
     pointer-events: all;
-    width: calc(var(--base-sizing)*8);
+    min-width: fit-content;
     background-color: var(--primary-color);
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    transition: width 0.5s;
+    transition: width 0.3s ease;
     border: var(--border);
+    width: 10%;
+    min-width: fit-content;
 }
 
-.hint-container details[open] {
-    width: calc(var(--base-sizing)*15);
+.hint-container details p {
+    text-wrap: wrap;
+    max-width: 20vw;
+}
+
+.hint-container summary {
+    text-wrap: nowrap;
+    color: var(--accent-color);
+    text-align: left;
+    font-size: var(--h3-font-size);
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 .hint-container details:hover {
-    width: calc(var(--base-sizing)*15);
+    width: 100%;
 }
 
 .hint-container details p {
     padding-block: 0.5em;
+    text-align: left;
+    font-size: var(--text-font-size);
 }
 
+summary::marker {
+    color: var(--accent-color);
+}
+
+
+/* add button  */
+.add-btn {
+    display: flex;
+    background-color: var(--primary-color);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 50px;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    align-self: center;
+    font-size: calc(var(--base-sizing) * 1.5);
+    padding: calc(var(--base-sizing) / 3);
+    pointer-events: all;
+    width: calc(var(--base-sizing) * 2.5);
+    height: calc(var(--base-sizing) * 2.5);
+    overflow: hidden;
+}
+
+.add-btn:not(:hover) i {
+    transition: margin 0.3s ease;
+    margin: auto;
+}
+
+.add-btn * {
+    cursor: pointer;
+}
+
+.add-btn:disabled {
+    background-color: lightgrey;
+    color: grey;
+    border: none;
+}
+
+.add-btn p {
+    text-wrap: nowrap;
+    font-size: small;
+    display: none;
+}
+
+.add-btn:not(:disabled):hover {
+    aspect-ratio: unset;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.add-btn:not(:disabled):hover p {
+    display: block;
+    padding-inline: 5px;
+}
+
+
+.add-hint {
+    align-self: flex-start;
+    overflow-x: hidden;
+}
+
+.add-spare-guess-btn {
+    margin-left: auto;
+}
+
+
+
+/* css for right side of ui */
 .ui-container-right {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    pointer-events: all;
     align-items: flex-end;
     gap: 1em;
 }
@@ -56,10 +146,13 @@
     align-items: center;
     justify-content: right;
 }
+
+/*  score container */
 .scoring-container {
     display: flex;
     max-width: 20vw;
     gap: 0.5em;
+    pointer-events: all;
 }
 
 .scoring-container div {
@@ -84,28 +177,32 @@
     display: none;
     overflow-x: hidden;
 }
-.scoring-container div:hover{
+
+.scoring-container div:hover {
     width: 200px;
     transition: all 0.5s ease;
 }
+
 .scoring-container div:hover .hidden-text {
     display: block;
 }
 
+/* clock styling */
 .clock {
-    width: 8vw;
+    min-width: calc(var(--base-sizing) * 7);
     aspect-ratio: 1;
     border-radius: 100px;
-    font-size: var(--h2-font-size);
+    font-size: calc(var(--base-sizing) * 2);
     font-weight: 400;
     background-color: var(--primary-color);
     box-shadow: var(--shadow);
     border: var(--border);
     justify-content: center;
+    text-align: center;
 }
 
 #alarm {
-    background-color: red;
+    background-color: var(--red);
     -webkit-animation: blink 1s steps(5, start) infinite;
     animation: blink 1s steps(5, start) infinite;
 }
@@ -116,6 +213,7 @@
     }
 }
 
+/* guess styling */
 .guess-container {
     display: flex;
     flex-direction: column;
@@ -133,9 +231,26 @@
     padding: 5px;
     padding-inline: 20px;
     border: var(--border);
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
     align-self: flex-end;
     gap: 5px;
+}
+
+.guess * {
+    cursor: pointer;
+}
+
+.potential-guess {
+    border-radius: 5rem;
+    box-shadow: var(--shadow);
+    background-color: lightgrey;
+    border: 2px dashed var(--accent-color);
+    min-width: 100%;
+    width: 100%;
+    padding: 5px;
+    padding-inline: 20px;
+    opacity: 50%;
+    justify-content: center;
 }
 
 .guess:hover {
@@ -143,13 +258,14 @@
 }
 
 .confirm-guess {
-    max-width: fit-content;
     aspect-ratio: 1;
-    border-radius: 5vh;
+    border-radius: 100px;
     cursor: pointer;
     box-shadow: var(--shadow);
     transition: color 0.5s;
     margin-top: auto;
+    font-size: var(--h2-font-size);
+    pointer-events: all;
 }
 
 .active {
@@ -164,23 +280,4 @@
 
 .inactive {
     color: lightgrey;
-    font-size: var(--h2-font-size);
 }
-
-summary::marker {
-    color: var(--accent-color);
-}
-
-summary {
-    color: var(--accent-color);
-    text-align: left;
-    font-size: var(--h3-font-size);
-    font-weight: bolder;
-    cursor: pointer;
-}
-
-details p {
-    text-align: left;
-    font-size: var(--text-font-size);
-}
-

@@ -21,19 +21,7 @@
     //     "It is located in modern-day Cambodia."
     //   ]
     // },
-    // {
-    //   "target": {
-    //     "name": "Chernobyl",
-    //     "coords": { "lat": 51.276667, "lng": 30.221944 }
-    //   },
-    //   "hints": [
-    //     "This location became infamous after an event in the 1980's that affected the entire world.",
-    //     "There are series, movies and even video games that cover this disastrous event.",
-    //     "The site was once home to a reactor that caused the worst nuclear disaster in history.",
-    //     "The site has been part of a 30-kilometer exclusion zone since the disaster.",
-    //     "It is situated in modern-day Ukraine, near the border with Belarus."
-    //   ]
-    // },
+    // 
     // {
     //   "target": {
     //     "name": "Kyoto",

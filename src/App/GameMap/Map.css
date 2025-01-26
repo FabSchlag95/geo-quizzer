@@ -5,6 +5,9 @@
     z-index: 0;
 }
 
+.leaflet-container {
+    min-height: 100vh;
+  }
 .leaflet-control-container {
     display: none;
     position: absolute;
@@ -15,4 +18,10 @@
 
 .leaflet-control-attribution {
     display: none;
+}
+
+.map-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }

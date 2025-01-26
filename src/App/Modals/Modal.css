@@ -1,50 +1,45 @@
-.overlay {
-    flex: 1;
+
+.end-modal-overlay {
+    backdrop-filter: none;
+    background-color: transparent;
+    gap:30vh;
+    flex:1;
+    height: 100%;
     z-index: 5;
-    background-color: #0005;
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
-.end-modal {
-    backdrop-filter: none;
-    background-color: transparent;
-    justify-content: space-between;
-    padding-block: 20;
-}
-
-.overlay h2 {
-    margin-top: 50px;
-    color: var(--primary-color);
+.end-modal-overlay h2 {
     text-shadow: var(--shadow);
-}
+  }
 
 .modal-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 1em;
-    width: fit-content;
-    max-width: 600px;
+    min-width: 300px;
+    width: 40vw;
+    max-width: 100%;
     height: fit-content;
-    max-height: 80vh;
+    max-height: calc(100% - 120px);
     background-color: var(--background-color);
-    overflow: auto;
     padding: 2rem;
-    text-align: left;
     box-shadow: var(--shadow);
     border-radius: 1rem;
     border: var(--border);
 }
 
 .modal-container ul{
-    max-height: 70%;
+    max-height: 50vh;
     flex:1;
     overflow-y: auto;
+    text-align: left;
 }
 
 .modal-container p {
@@ -65,5 +60,6 @@ li {
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
     max-height: 90vh;
+    min-width: 300px;
 }
 

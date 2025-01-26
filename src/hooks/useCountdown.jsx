@@ -1,3 +1,11 @@
+/**
+ * Custom hook to create a countdown timer.
+ * @hook
+ * 
+ * @param {number} limit - The starting value for the countdown.
+ * @returns {[number, function]} - An array containing the current counter value and the countdown function.
+ */
+
 import { useCallback, useState } from "react";
 
 export default function useCountdown(limit) {

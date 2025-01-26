@@ -1,3 +1,10 @@
+/**
+ * Creates a guess object based on the provided coordinates (guess and target).
+ * Via helper functions distance to target, a color based on the distance an angle to the target and 
+ * a win flag if guess was close enough are set.
+ *
+ * @function
+ */
 import haversine from "haversine-distance";
 import { point, bearing } from "@turf/turf";
 

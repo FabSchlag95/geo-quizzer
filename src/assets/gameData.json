@@ -15,9 +15,10 @@
         "name": "Los Angeles",
         "coords": { "lat": 34.052222, "lng": -118.243611 }
       },
+      "difficulty":1,
       "hints": [
         {
-          "text": "They call this city 'The Big Orange'.",
+          "text": "Probably the most famous beach of the city. They call this city 'The Big Orange'.",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Venice_Beach%2C_Los_Angeles%2C_CA_01_%28cropped%29.jpg/1200px-Venice_Beach%2C_Los_Angeles%2C_CA_01_%28cropped%29.jpg?20200429051833"
         },
         {
@@ -30,19 +31,187 @@
     },
     {
       "target": {
-        "name": "Los Angeles",
-        "coords": { "lat": 34.052222, "lng": -118.243611 }
+        "name": "Prague",
+        "coords": { "lat": 50.08804, "lng": 14.42076 }
       },
+      "difficulty":2,
       "hints": [
         {
-          "text": "They call this city 'The Big Orange'.",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Venice_Beach%2C_Los_Angeles%2C_CA_01_%28cropped%29.jpg/1200px-Venice_Beach%2C_Los_Angeles%2C_CA_01_%28cropped%29.jpg?20200429051833"
+          "text": "We are looking for the place where this famous author was born.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Kafka.jpg/840px-Kafka.jpg?uselang=de"
         },
         {
-          "text": "The Olympic Summer Games of 2028 take place there."
+          "text": "It was once the capital of the holy roman empire."
         },
         {
-          "text": "The city is famous for its thriving film industry."
+          "text": "Nowadays, it's the capital of a slavic speaking country."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Chernobyl",
+        "coords": { "lat": 51.276667, "lng": 30.221944 }
+      },
+      "difficulty":2,
+      "hints": [
+        {
+          "text": "A disastrous event set an end to this hotel's era. Where could it be?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chernobyl_30_Years_after_%E2%80%93_Public_Domain_CC0_-_29910952187.jpg/1200px-Chernobyl_30_Years_after_%E2%80%93_Public_Domain_CC0_-_29910952187.jpg?20200315142444"
+        },
+        {
+          "text": "The site has been part of a 30-kilometer exclusion zone since the disaster."
+        },
+        {
+          "text": "It is situated in modern-day Ukraine, near the border with Belarus."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Machu Picchu",
+        "coords": { "lat": -13.163141, "lng": -72.544963 }
+      },
+      "difficulty":2,
+      "hints": [
+        {
+          "text": "Long forgotten, too high in the mountains...",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Machu_Picchu.png/1280px-Machu_Picchu.png?uselang=de"
+        },
+        {
+          "text": "The name translates to 'Old Mountain' in Quechua."
+        },
+        {
+          "text": "The site is situated in modern-day Peru."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Angkor Wat",
+        "coords": { "lat": 13.412469, "lng": 103.866986 }
+      },
+      "difficulty":3,
+      "hints": [
+        {
+          "text": "This relief stems from the reign of Suryavarman II. It is on a famous temple.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Angkor_Wat_%289709626400%29.jpg/1200px-Angkor_Wat_%289709626400%29.jpg?20200903211412"
+        },
+        {
+          "text": "It is one of the most visited tourist cites in south east asia."
+        },
+        {
+          "text": "The site is a symbol of the Khmer Empire and appears on the national flag."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Boulevard du temple, Paris",
+        "coords": { "lat": 48.85797, "lng": 2.3599 }
+      },
+      "difficulty":3,
+      "hints": [
+        {
+          "text": "This photo might not look any interesting, but for its time it mere existence was a revolution. Where was it taken?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Boulevard_du_Temple_by_Daguerre.jpg?uselang=de"
+        },
+        {
+          "text": "The photo was made 1839 and counts as the first photography ever. It depicts a 'boulevard'..."
+        },
+        {
+          "text": "The site is a symbol of the Khmer Empire and appears on the national flag."
+        }
+      ]
+    },{
+      "target": {
+        "name": "Lake Baikal, Russia",
+        "coords": { "lat": 53.5587, "lng": 108.165 }
+      },
+      "difficulty":2,
+      "hints": [
+        {
+          "text": "This ice shield covers the world's deepest freshwater lake, containing about 20% of the Earth's unfrozen fresh water.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ice-cream-2097480.jpg/900px-Ice-cream-2097480.jpg?20220407144753"
+        },
+        {
+          "text": "Despite of its ice shield it is rather in the south of its country."
+        },
+        {
+          "text": "It's in asia."
+        }
+      ]
+    },{
+      "target": {
+        "name": "Beijing, China",
+        "coords": { "lat": 39.9042, "lng": 116.4074 }
+      },
+      "difficulty":3,
+      "hints": [
+        {
+          "text": "US-president Bush attending the basketball game USA vs. Czech Republic. Where was the game played? Hint: not in the USA.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Bushes_watch_USA_vs._Czech_Republic_women%27s_basketball_game_at_2008_Summer_Olympics_2008-08-09.jpg?20100416181614"
+        },
+        {
+          "text": "The city's name translates to 'northern city'."
+        },
+        {
+          "text": "The city contains another city that, according to it's name, must not be visited."
+        }
+      ]
+    },{
+      "target": {
+        "name": "Mount Kilimanjaro, Tanzania",
+        "coords": { "lat": -3.0674, "lng": 37.3556 }
+      },
+      "difficulty":3,
+      "hints": [
+        {
+          "text": "This is tallest free-standing mountain in the world. Where is it located?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Kilimanjaro_2006-08-13.JPG/800px-Kilimanjaro_2006-08-13.JPG"
+        },
+        {
+          "text": "The mountain has three volcanic cones: Kibo, Mawenzi, and Shira."
+        },
+        {
+          "text": "This iconic mountain is located in near the border of two african countries."
+        }
+      ]
+    },{
+      "target": {
+        "name": "Ayers Rock, Australia",
+        "coords": { "lat": -25.345278, "lng": 131.034722 }
+      },
+      "difficulty":2,
+      "hints": [
+        {
+          "text": "This is the 'Uluru' mountain. However, most people know it under its english name.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Ayers_Rock-view_from_50k.jpg/1024px-Ayers_Rock-view_from_50k.jpg"
+        },
+        {
+          "text": "It is located in a 'northern territory'. But not located in the north at all."
+        },
+        {
+          "text": "To get there, take the big road, get off half way at 4 and walk a few days west till 'Yulara'."
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Marienplatz Munich, Germany",
+        "coords": { "lat": 48.1351, "lng": 11.582 }
+      },
+      "difficulty":1,
+      "hints": [
+        {
+          "text": "This city still looks a lot like this...",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Friedrich_Eibner_Marienplatz_in_M%C3%BCnchen.jpg/1280px-Friedrich_Eibner_Marienplatz_in_M%C3%BCnchen.jpg"
+        },
+        {
+          "text": "Once in a year people come to drink their local 'Bräu'. "
+        },
+        {
+          "text": "It is also famous for its football club."
         }
       ]
     }

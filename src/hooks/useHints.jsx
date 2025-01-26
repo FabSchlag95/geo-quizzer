@@ -1,9 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
+
+/**
+ * Custom hook to manage hints for a given item.
+ * Sets the active hints which is triggered by the activateNextHint function
+ */
+
+import { useCallback, useEffect, useState } from "react";
 
 export default function useHints(currentItem) {
   const [hints, setHints] = useState([]);
   const [activeHints, setActiveHints] = useState([]);
  
+  // when currentItem is loaded, hints are retrieved
   useEffect(()=>{
     if(currentItem){
       setHints(currentItem.hints);

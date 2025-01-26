@@ -1,3 +1,11 @@
+/**
+ * App component that serves as the main entry point for the application.
+ * It manages the game state and renders different all main and container components.
+ *
+ * @component
+ */
+
+
 import Header from "./Misc/Header";
 import Footer from "./Misc/Footer";
 import "./App.css";
@@ -6,12 +14,11 @@ import MainModal from "./Modals/MainModal";
 import GameMap from "./GameMap/GameMap";
 import { gameContext } from "./contexts";
 import MainUI from "./UIElements/MainUI";
-import borders from "../assets/borders.json";
 import InitialAnimation from "./Misc/InitialAnimation";
 
 export default function App() {
-  const [state, nextGameState, toggleRules, restartGame, changeSettings] =
-    useGameStates();
+  const gameState = useGameStates();
+  const { state, nextGameState } = gameState;
 
   return (
     <>
@@ -21,19 +28,21 @@ export default function App() {
       <gameContext.Provider
         value={{
           ...state,
-          nextGameState,
-          toggleRules,
-          restartGame,
-          borders,
-          changeSettings,
+          ...gameState,
         }}
       >
         <Header />
         <MainModal />
-        {state.stateName === "GUESSING" && <MainUI />}
+        {
+          // reset and don't show the ui conditionally / restarts the clock
+          !(
+            state.currentScreen === "END_SCREEN" ||
+            state.stateName === "START_ROUND"
+          ) && <MainUI />
+        }
         <GameMap />
-        <Footer />
       </gameContext.Provider>
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,17 @@
+
+
+/**
+ * InitialAnimation component
+ * 
+ * This component displays an initial animation that gets played when the site is loaded.
+ * It shows the text "Geo (animated Q ) izzer"
+ * The animation lasts for 3 seconds before transitioning to the next game state.
+ * 
+ * @component
+ */
 import React, { useEffect } from "react";
-import "./Misc.css";
-import quizzerIcon from "../../assets/icons/quizzer-icon_secondary.png"
+import "./Animation.css";
+import quizzerIcon from "../../assets/icons/quizzer-icon-simple.png"
 
 export default function InitialAnimation({nextGameState}) {
 
