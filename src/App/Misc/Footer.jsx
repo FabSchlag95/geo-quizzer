@@ -37,18 +37,6 @@ const Footer = () => {
           GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User
           Community |{" "}
         </a>
-        &copy;{" "}
-        <a href="https://www.stadiamaps.com/" target="_blank">
-          Stadia Maps
-        </a>{" "}
-        | &copy;{" "}
-        <a href="https://www.stamen.com/" target="_blank">
-          Stamen Design
-        </a>{" "}
-        | &copy;{" "}
-        <a href="https://openmaptiles.org/" target="_blank">
-          OpenMapTiles
-        </a>{" "}
         | &copy;{" "}
         <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank">
           WikiMedia

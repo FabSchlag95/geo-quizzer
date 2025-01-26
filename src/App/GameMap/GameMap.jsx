@@ -14,12 +14,14 @@ import {
   useMapEvents,
   useMap,
   Marker,
+  GeoJSON,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 import { gameContext } from "../contexts";
 import { compassMarker, quizzerMarker, targetMarker } from "./customIcon";
 import { Polyline } from "react-leaflet";
+import borders from '../../assets/borders.json'
 
 const GameMap = () => {
   const {
@@ -64,7 +66,15 @@ const GameMap = () => {
       >
         {maps && map && <TileLayer url={maps[map]} />}
         {showBorders && (
-          <TileLayer url="https://tiles.stadiamaps.com/tiles/stamen_terrain_lines/{z}/{x}/{y}{r}.png" />
+          <GeoJSON
+          data={borders}
+          style={{
+            color: "var(--accent-color)",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0,
+          }}
+        />
         )}
         <MapEventComponent
           setTempCoords={(coords) => changeSettings({ tempCoords: coords })}

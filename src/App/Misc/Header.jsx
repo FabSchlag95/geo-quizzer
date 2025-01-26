@@ -44,7 +44,7 @@ const Header = () => {
             disabled={map==='osm'}
             onClick={() => changeSettings({ showBorders: !showBorders })}
           >
-            Streets&Borders
+            Borders
           </TextButton>
           <TextButton activeWhen={null} onClick={handleAskForRestart}>
             I want a restart!
