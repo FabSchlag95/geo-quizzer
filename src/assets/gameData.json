@@ -55,14 +55,14 @@
       "difficulty": 2,
       "hints": [
         {
-          "text": "A disastrous event set an end to this hotel's era. Where could it be?",
+          "text": "A disastrous event set an end to this hotel's era. Where was it?",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chernobyl_30_Years_after_%E2%80%93_Public_Domain_CC0_-_29910952187.jpg/1200px-Chernobyl_30_Years_after_%E2%80%93_Public_Domain_CC0_-_29910952187.jpg?20200315142444"
         },
         {
-          "text": "The site has been part of a 30-kilometer exclusion zone since the disaster."
+          "text": "This radio active disaster threatened the capital of the country."
         },
         {
-          "text": "It is situated in modern-day Ukraine, near the border with Belarus."
+          "text": "It is close to the border of Belarus, but not in Belarus."
         }
       ]
     },
@@ -207,7 +207,7 @@
       "difficulty": 1,
       "hints": [
         {
-          "text": "From this construction work you have a good sight over which city?",
+          "text": "Don't mind the ship, what city is there in the back?",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/USS_Arizona_in_New_York_City_Crisco_edit.jpg/981px-USS_Arizona_in_New_York_City_Crisco_edit.jpg"
         },
         {
@@ -283,7 +283,7 @@
       "difficulty": 2,
       "hints": [
         {
-          "text": "Don't I know this mountain from a different painting?",
+          "text": "Do I know this mountain from a different painting? Where is the mountain located ?",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/%E5%86%A8%E5%B6%BD%E4%B8%89%E5%8D%81%E5%85%AD%E6%99%AF_%E6%9D%B1%E6%B5%B7%E9%81%93%E9%87%91%E8%B0%B7%E3%81%AE%E4%B8%8D%E4%BA%8C-Fuji_Seen_from_Kanaya_on_the_T%C5%8Dkaid%C5%8D_%28T%C5%8Dkaid%C5%8D_Kanaya_no_Fuji%29%2C_from_the_series_Thirty-six_Views_of_Mount_Fuji_%28Fugaku_sanj%C5%ABrokkei%29_MET_DP141002.jpg/1024px-thumbnail.jpg"
         },
         {

@@ -17,7 +17,7 @@ const [currentGuess, setCurrentGuess] = useState(guesses.slice(-1)[0]);
         <h3>{setHeadline(currentGuess?.distance)}</h3>
         <p>
           { currentGuess?.distance
-            ? `Your guess is located ${currentGuess.distance} km from the place we are looking for.`
+            ? <>Your guess was <b>{currentGuess.distance} km</b> away from the place we are looking for.</>
             : "You have not set a guess on the map."}
         </p>
         <button onClick={nextGameState}>

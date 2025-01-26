@@ -26,7 +26,9 @@ export default function ConfirmGuessBtn() {
           "fa-solid fa-circle-check confirm-guess " +
           (tempCoords ? "active" : "inactive")
         }
-      />
+      >
+        <div></div>
+      </i>
       {showPopUp && (
         <PopUpWindow>
           <p>Do you really want to set your guess here?</p>

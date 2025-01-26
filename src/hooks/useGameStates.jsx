@@ -29,7 +29,7 @@ const initialGameState = {
   roundTime: 300,
   maxWinDistance: 50,
   maxCompassDistance: 5000, // must be low due to errors of harvesine api
-  hintPrice: 7,
+  hintPrice: 5,
   guessPrice: 10,
   compassPrice: 15,
   maxGuesses: 5,

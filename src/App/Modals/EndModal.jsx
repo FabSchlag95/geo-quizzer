@@ -36,10 +36,10 @@ export default function EndModal() {
         {win ? (
           <div>
             <p>
-              You earned {creditsWon} extra credits. So, now you have {credits}{" "}
+              You earned <b>{creditsWon} extra credits</b>. So, now you have {credits}{" "}
               credits for the next rounds.{" "}
             </p>
-            <p>So far, you found {itemsFound} item(s) in a row. Keep going!</p>
+            <p>So far, you have found <b>{itemsFound} item(s) in a row</b>. Keep going!</p>
           </div>
         ) : (
           <div>
@@ -49,8 +49,8 @@ export default function EndModal() {
                 : "You didn't even set a final guess."}
             </p>
             <p>
-              This round ends for you. You have found {itemsFound} item(s) in a
-              row.
+              This round ends for you. You have found <b>{itemsFound} item(s) in a
+              row</b>.
             </p>
           </div>
         )}

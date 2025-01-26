@@ -3,7 +3,7 @@
  *
  * @component
  */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PopUpWindow from "../../components/PopUpWindow";
 import { gameContext } from "../contexts";
 
