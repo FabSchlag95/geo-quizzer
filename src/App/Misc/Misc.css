@@ -17,34 +17,37 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    header {
-        max-height: 15px;
-        transition: max-height 0.3s ease;
-        font-size: calc(var(--base-sizing) / 2);
-    }
+    @supports (-webkit-touch-callout: none) {
 
-    header * {
-        text-wrap: nowrap;
-        font-size: calc(var(--base-sizing) / 2);
-    }
+        header {
+            max-height: 15px;
+            transition: max-height 0.3s ease;
+            font-size: calc(var(--base-sizing) / 2);
+        }
 
-    header:hover {
-        max-height: 50px;
-    }
+        header * {
+            text-wrap: nowrap;
+            font-size: calc(var(--base-sizing) / 2);
+        }
 
-    header:hover * {
-        text-wrap: nowrap;
-        font-size: calc(var(--base-sizing));
-    }
+        header:hover {
+            max-height: 50px;
+        }
 
-    footer {
-        max-height: 15px;
-        transition: max-height 0.3s ease;
-    }
+        header:hover * {
+            text-wrap: nowrap;
+            font-size: calc(var(--base-sizing));
+        }
 
-    footer:hover {
-        max-height: fit-content;
-        max-height: 50px;
+        footer {
+            max-height: 15px;
+            transition: max-height 0.3s ease;
+        }
+
+        footer:hover {
+            max-height: fit-content;
+            max-height: 50px;
+        }
     }
 }
 
