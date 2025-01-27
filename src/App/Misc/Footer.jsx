@@ -37,6 +37,7 @@ const Footer = () => {
           GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User
           Community |{" "}
         </a>
+        &copy; <a href="www.geoboundaries.org,">GeoBoundaries</a>{" "}
         | &copy;{" "}
         <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank">
           WikiMedia

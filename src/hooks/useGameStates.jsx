@@ -36,8 +36,8 @@ const initialGameState = {
   // constant data
   rules: gameData.rules,
   allItems: gameData.items,
-  notPlayedItems: gameData.items,
   // variable data
+  notPlayedItems: gameData.items,
   activeHints: [],
   guesses: [],
   currentItem: null,
@@ -77,7 +77,7 @@ export default function useGameStates() {
         const [currentItem, notPlayedItems] = nextRandomItem(
           state.notPlayedItems?.length
             ? state.notPlayedItems
-            : initialGameState.notPlayedItems
+            : state.allItems
         );
         return {
           ...state,

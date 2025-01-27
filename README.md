@@ -54,7 +54,7 @@ GeoQuizzer is a quiz game that combines location guessing and quiz game play. So
 
 ## Interaction
 
-- preferably a the user interacts with a mouse that has a scroll function. Touchscreen are supported, but may work correctly with css.
+- preferably, the user interacts with a mouse that has a scroll function. Touchscreens are supported, but may not work correctly with css.
 
 ## Project Structure
 
@@ -70,14 +70,13 @@ GeoQuizzer is a quiz game that combines location guessing and quiz game play. So
 
 ## Installation 
 
-- cd geo-quizzer
 - npm install
 - npm run dev
 - follow the link for localhost
 
 ## Testing
 
-- tested on Microsoft Edge, Chrome and Safari vor Ipad
+- tested on Microsoft Edge, Google Chrome and Safari vor Ipad
 - not optimized for smartphones
 
 ## Technologies in use
@@ -102,9 +101,13 @@ GeoQuizzer is a quiz game that combines location guessing and quiz game play. So
 ## References
 
 - all pictures used are in the public domain; attribution is only provided below, not in the game to avoid spoiling game play
-- map providers are credited in the footer
+- map providers are: (also credited in the footer)
+    - for satellite imagery: Esri, i-cubed, USDA, USGS, AEX,
+          GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User
+          Community 
+    - Open Street Map: https://www.openstreetmap.org/copyright
 - FontAwesome-Icons are in use
-
+- for borders: Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 
 **Image References**
 
